@@ -1,3 +1,10 @@
 == README
 
 CV System for Projects and Their Management module.
+
+Authors:
+- Sebastian Muszynski
+- Ibrahim Sadiq
+- Andrew Hirst
+- Ace Shaulov
+- Adam Kerr
