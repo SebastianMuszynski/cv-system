@@ -1,6 +1,8 @@
 == README
 
-CV System for Projects and Their Management module.
+CV System for SEC Placement Team 
+
+Projects and Their Management module
 
 Authors:
 - Sebastian Muszynski
