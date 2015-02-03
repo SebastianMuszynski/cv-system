@@ -8,12 +8,26 @@
 </head>
 <body>
 
- <header>
- 	<p> Sign Up </p>
- 	<p> Log in </p>
- </header>
+  <header>
+    <div id="logo">
+      <a href="<%= root_path %>">
+        <img src="http://fakeimg.pl/200x80/?text=CV%20SYSTEM" alt="CV System Logo" />
+      </a>
+    </div>
 
-<%= yield %>
+    <nav>
+      <ul>
+        <li><a href="<%= jobs_path %>">Jobs</a></li>
+        <li><a href="<%= cvs_path %>">My CVs</a></li>
+        <li><a href="#">My account</a></li>
+        <li><a href="#">Log out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="container">
+    <%= yield %>
+  </div>
 
 </body>
 </html>
