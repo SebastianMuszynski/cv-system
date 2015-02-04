@@ -1,29 +1,39 @@
-<div>
-	<p>Search:</p>
-	<input type="text">
-	<p>Filter by category:</p>
-	<button>Science</button>
-	<button>Computing</button>
-	<button>Engineering</button>
-	<p>Filter by added date:</p>
-	<button>Newest</button>
-	<button>Oldest</button>
-	<p>Filter by deadline:</p>
-	<button>Upcoming</button>
-	<button>Furthest</button>
+<div class="filter-box">
+	<div class="search">
+		<p>Search:</p>
+		<input type="text"> 
+	</div>
+
+	<div class="category">
+		<p>Filter by category</p>
+		<button>Science</button>
+		<button>Computing</button>
+		<button>Engineering</button>
+	</div>
+
+	<div class="date-added">
+		<p>Filter by added date:</p>
+		<button>Newest</button>
+		<button>Oldest</button>
+	</div>	
+ 
+ 	<div class="deadline">
+		<p>Filter by deadline:</p>
+		<button>Upcoming</button>
+		<button>Furthest</button>
+	</div>
 </div>
-<div>
-	<img src="http://fakeimg.pl/50x50/?text=Company Logo">
-	<p>Job spec title</p>
-	<p>Job spec description</p>
-	<button>Apply</button>
-<div>
-<div>
-	<img src="http://fakeimg.pl/50x50/?text=Company Logo">
-	<p>Job spec title</p>
-	<p>Job spec description</p>
-	<button>Apply</button>
-<div>
 
-
-
+<%= 5.times do %>
+<div class="job-details">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	<div class="send-button">
+		<button>Apply</button>
+	</div>
+</div>
+<% end %>

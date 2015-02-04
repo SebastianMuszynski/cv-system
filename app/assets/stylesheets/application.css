@@ -19,6 +19,11 @@
   padding: 0;
 }
 
+p {
+  font-family: Gautami, sans-serif;
+  font-size: 18px;
+}
+
 header {
   background-color: grey;
   height: 120px;

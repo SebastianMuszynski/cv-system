@@ -1,0 +1,40 @@
+.filter-box {
+  background-color: white;
+  width: 250px;
+  padding: 25px;
+  border: 2px dotted black;
+  margin-top: 50px;
+  position: fixed;
+}
+
+.filter-box.search input {
+  display: inline-block;
+  margin: 15px 0;
+}
+
+.filter-box button, 
+.job-details button {
+  display: block;
+  margin: 10px 0;
+  padding: 5px 20px;
+}
+
+.job-details button {
+  display: inline-block;
+}
+
+.job-details {
+  margin: 50px auto;
+  width: 800px;  
+  background-color: grey;
+}
+
+.job-details textarea {
+  width: 800px;
+  height:480px;
+}
+
+.job-details .send-button,
+.job-details p {
+  text-align: center;
+}
