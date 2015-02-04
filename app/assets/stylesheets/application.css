@@ -17,11 +17,34 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Ubuntu', 'Verdana', sans-serif;
+  font-size: 16px;
+}
+
+.center {
+  text-align: center;
+}
+
+button {
+  background-color: #404040;
+  border: none;
+  border-bottom: 3px solid #99ccff;
+  color: white;
+  height: 50px;
+  padding: 0 50px;
+  cursor: pointer;
+  transition: .5s opacity ease;
+  outline: none;
+}
+
+button:hover {
+  opacity: .9;
 }
 
 header {
-  background-color: grey;
+  background-color: #404040;
   height: 120px;
+  border-bottom: 5px solid #99ccff;
 }
 
 header #logo {
@@ -29,14 +52,14 @@ header #logo {
 }
 
 header #logo a img {
-  border: 2px solid black;
-  margin: 20px 100px;
+  margin: 30px 100px 0;
+  width: 200px;
 }
 
 header nav {
   display: inline-block;
   position: absolute;
-  top: 38px;
+  top: 35px;
   right: 100px;
 }
 
@@ -47,11 +70,15 @@ header nav ul {
 header nav ul li {
   display: inline-block;
   margin-left: 20px;
-  background-color: white;
 }
 
 header nav ul li a {
   display: block;
-  padding: 10px 30px;
+  padding: 15px 30px;
+  color: white;
+  text-decoration: none;
 }
 
+header nav ul li a:hover {
+  color: grey;
+}
