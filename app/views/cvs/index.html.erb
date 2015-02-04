@@ -1,26 +1,27 @@
 <%= 5.times do %>
-<div class="cv-box">
-  <div class="cv-preview">CV PREVIEW</div>
-  <div class="cv-details">
-    <div class="header">Details</div>
-    <table>
-      <tr>
-        <td>Created for:</td>
-        <td>Job spec title</td>
-      </tr>
-      <tr>
-        <td>Created date:</td>
-        <td>19/01/2015 14:10</td>
-      </tr>
-      <tr>
-        <td>Feedback status:</td>
-        <td>received: accepted</td>
-      </tr>
-    </table>
-    <div class="buttons center">
-      <button>Edit CV</button>
-      <button>Send CV</button>
+  <% @feedback_status = ['accepted', 'rejected'].sample %>
+  <div class="cv-box">
+    <div class="cv-preview">CV PREVIEW</div>
+    <div class="cv-details">
+      <div class="header">Details</div>
+      <table>
+        <tr>
+          <td>Created for:</td>
+          <td>Job spec title</td>
+        </tr>
+        <tr>
+          <td>Created date:</td>
+          <td>19/01/2015 14:10</td>
+        </tr>
+        <tr>
+          <td>Feedback status:</td>
+          <td class="feedback-status <%= @feedback_status %>"><%= @feedback_status %></td>
+        </tr>
+      </table>
+      <div class="buttons center">
+        <button>Edit CV</button>
+        <button>Send CV</button>
+      </div>
     </div>
   </div>
-</div>
 <% end %>

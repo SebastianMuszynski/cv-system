@@ -43,5 +43,17 @@
 
 .cv-details .buttons button {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 10px;
+}
+
+.feedback-status {
+  font-weight: bold;
+}
+
+.feedback-status.accepted {
+  color: green;
+}
+
+.feedback-status.rejected {
+  color: red;
 }
