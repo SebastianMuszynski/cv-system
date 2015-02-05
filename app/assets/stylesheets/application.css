@@ -25,20 +25,32 @@
   text-align: center;
 }
 
-button {
+button, 
+input[type="submit"] {
   background-color: #404040;
   border: none;
   border-bottom: 3px solid #99ccff;
+  border-radius: 5px;
   color: white;
   height: 50px;
   padding: 0 50px;
   cursor: pointer;
-  transition: .5s opacity ease;
   outline: none;
+  transition: .5s opacity ease;
 }
 
-button:hover {
+button:hover, 
+input[type="submit"]:hover {
   opacity: .9;
+}
+
+input {
+  outline: none;
+  transition: .5s border-bottom ease;
+}
+
+input:focus {
+  border-bottom: 3px solid #99ccff;
 }
 
 header {
