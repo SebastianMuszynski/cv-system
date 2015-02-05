@@ -1,0 +1,20 @@
+#notification {
+  margin: 35px auto 0;
+  text-align: center;
+  width: 380px;
+}
+
+#notification p {
+  box-sizing: border-box;
+  max-width: 800px;
+  min-width: 380px; 
+  padding: 15px 50px;
+}
+
+#notification p.notice {
+  background-color: #BDE5F8;
+}
+
+#notification p.alert {
+  background-color: #FFBABA;
+}
