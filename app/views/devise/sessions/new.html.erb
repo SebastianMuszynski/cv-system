@@ -1,9 +1,9 @@
-<div id="log-in">
+<div class="auth-form">
 
   <h1>Log in</h1>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <%= f.email_field :email, placeholder: "KU email", autofocus: true %>
+    <%= f.email_field :email, placeholder: "KU Email (e.g. K123456@kingston.ac.uk)", autofocus: true %>
     <%= f.password_field :password, placeholder: "Password", autocomplete: "off" %>
 
     <% if devise_mapping.rememberable? -%>
