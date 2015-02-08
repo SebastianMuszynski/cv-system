@@ -11,6 +11,15 @@
   margin-bottom: 30px;
 }
 
+.auth-form h2.sub-title {
+  color: grey;
+  font-weight: normal;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-style: italic;
+}
+
 .auth-form input:not([type="email"]),
 .auth-form input:not([type="password"]) {
   margin: 15px 0;
