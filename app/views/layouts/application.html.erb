@@ -10,16 +10,14 @@
 
   <header>
     <div id="logo">
-      <a href="<%= root_path %>">
-        <%= image_tag("logo.png") %>
-      </a>
+      <%= link_to image_tag("logo.png"), root_path %>
     </div>
 
     <nav>
       <ul>
         <% if user_signed_in? %>
-          <li><a href="<%= jobs_path %>">Jobs</a></li>
-          <li><a href="<%= cvs_path %>">My CVs</a></li>
+          <li><%= link_to "Jobs", jobs_path %></li>
+          <li><%= link_to "My CVs", cvs_path %></li>
           <li><%= link_to "My account", edit_user_registration_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></a></li>
         <% else %>

@@ -1,0 +1,40 @@
+.feedback {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+.feedback .feedback-info {
+  position: relative;
+  padding: 50px;
+}
+
+.feedback .feedback-info table tr {
+  line-height: 30px;
+}
+
+.feedback .feedback-info table tr td:first-child {
+  font-weight: bold;
+  padding-right: 20px;
+}
+
+.feedback .feedback-info .buttons {
+  position: absolute;
+  top: 55px;
+  right: 100px;
+}
+
+.feedback .feedback-info .buttons button {
+  display: block;
+  margin: 10px 0;
+  width: 200px;
+}
+
+.feedback-cv-preview {
+  width: 800px;
+  height: 500px;
+  background-color: #ccc;
+  margin: 30px auto;
+  text-align: center;
+  line-height: 500px;
+}

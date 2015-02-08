@@ -15,7 +15,7 @@
         </tr>
         <tr>
           <td>Feedback status:</td>
-          <td class="feedback-status <%= @feedback_status %>"><%= @feedback_status %></td>
+          <td class="feedback-status <%= @feedback_status %>"><%= link_to @feedback_status, feedback_preview_cvs_path %></td>
         </tr>
       </table>
       <div class="buttons center">

@@ -50,10 +50,12 @@
   font-weight: bold;
 }
 
-.feedback-status.accepted {
+.feedback-status.accepted,
+.feedback-status.accepted a {
   color: green;
 }
 
-.feedback-status.rejected {
+.feedback-status.rejected,
+.feedback-status.rejected a {
   color: red;
 }
