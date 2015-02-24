@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224172347) do
+ActiveRecord::Schema.define(version: 20150224172348) do
 
   create_table "cvs", force: true do |t|
     t.string   "name"
@@ -31,6 +31,24 @@ ActiveRecord::Schema.define(version: 20150224172347) do
 
   add_index "cvs", ["job_id"], name: "index_cvs_on_job_id"
   add_index "cvs", ["user_id"], name: "index_cvs_on_user_id"
+
+  create_table "feedbacks", force: true do |t|
+    t.string   "status"
+    t.string   "personal_details"
+    t.string   "personal_statement"
+    t.string   "skills"
+    t.string   "qualifications"
+    t.string   "references"
+    t.string   "experience"
+    t.string   "other_comments"
+    t.integer  "staff_member_id"
+    t.integer  "cv_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feedbacks", ["cv_id"], name: "index_feedbacks_on_cv_id"
+  add_index "feedbacks", ["staff_member_id"], name: "index_feedbacks_on_staff_member_id"
 
   create_table "jobs", force: true do |t|
     t.string   "title"
@@ -66,9 +84,6 @@ ActiveRecord::Schema.define(version: 20150224172347) do
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "photo"
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
