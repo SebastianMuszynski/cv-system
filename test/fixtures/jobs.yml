@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  logo: MyString
+  deadline: 2015-02-24
+  category: MyString
+  salary: 
+
+two:
+  title: MyString
+  description: MyString
+  logo: MyString
+  deadline: 2015-02-24
+  category: MyString
+  salary: 
