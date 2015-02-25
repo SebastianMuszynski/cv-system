@@ -1,2 +1,30 @@
-<h2>Hello world!</h2>
-<p>There will be our jobs.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Job title</th>
+      <th>Job description</th>
+      <th>Job salary</th>
+      <th>Job category</th>
+      <th>Job logo</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= job.description %></td>
+        <td><%= job.salary %></td>
+        <td><%= job.category %></td>
+        <td><%= job.logo %></td>
+        <td><%= link_to 'Show', [:admin, job] %></td>
+        <td><%= link_to 'Edit', edit_admin_job_path(job) %></td>
+        <td><%= link_to 'Destroy', [:admin, job], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Job', new_admin_job_path %>

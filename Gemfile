@@ -8,4 +8,4 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'carrierwave'
-
+gem 'simple_form', '~> 3.1.0'

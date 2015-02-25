@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @job] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :title, placeholder: 'Job title' %>
+  <%= f.input :description, placeholder: 'Job description' %>
+  <%= f.input :deadline, placeholder: 'Job deadline date' %>
+  <%= f.input :salary, placeholder: 'Job salary' %>
+  <%= f.input :category, placeholder: 'Job category' %>
+  <%= f.button :submit %>
+<% end %>
