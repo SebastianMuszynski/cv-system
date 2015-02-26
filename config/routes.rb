@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
-  root to: 'pages#main'
-  
   devise_for :users
   devise_for :staff_members
 
+  unauthenticated do
+    root to: 'pages#main'
+  end
+  
   namespace :admin do
     authenticate :staff_member do
       resources :cvs
