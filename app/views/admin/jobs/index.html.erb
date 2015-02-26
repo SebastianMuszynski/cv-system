@@ -1,4 +1,4 @@
-<table>
+<table class="jobs-table">
   <thead>
     <tr>
       <th>Job title</th>
@@ -16,15 +16,16 @@
         <td><%= job.description %></td>
         <td><%= job.salary %></td>
         <td><%= job.category %></td>
-        <td><%= job.logo %></td>
+        <td><%= job.logo || "-" %></td>
         <td><%= link_to 'Show', [:admin, job] %></td>
         <td><%= link_to 'Edit', edit_admin_job_path(job) %></td>
         <td><%= link_to 'Destroy', [:admin, job], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
+  
 </table>
 
-<br>
-
-<%= link_to 'New Job', new_admin_job_path %>
+<div class="under-form-links"> 
+  <%= link_to 'New Job', new_admin_job_path %>
+</div>

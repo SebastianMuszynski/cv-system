@@ -1,4 +1,4 @@
-.auth-form {
+.formatted-form {
   margin: 80px auto 0;
   padding: 30px;
   text-align: center;
@@ -6,12 +6,12 @@
   position: relative;
 }
 
-.auth-form h1 {
+.formatted-form h1 {
   font-size: 40px;
   margin-bottom: 30px;
 }
 
-.auth-form h2.sub-title {
+.formatted-form h2.sub-title {
   color: grey;
   font-weight: normal;
   margin-top: -10px;
@@ -20,35 +20,35 @@
   font-style: italic;
 }
 
-.auth-form input:not([type="email"]),
-.auth-form input:not([type="password"]) {
+.formatted-form input:not([type="email"]),
+.formatted-form input:not([type="password"]) {
   margin: 15px 0;
   padding: 15px;
   width: 350px;
   border-radius: 5px;
 }
 
-.auth-form input[type="submit"] {
+.formatted-form input[type="submit"] {
   width: 380px;
 }
 
-.auth-form .remember-me {
+.formatted-form .remember-me {
   margin-left: 10px;
   text-align: left;
 }
 
-.auth-form .remember-me input,
-.auth-form .remember-me label {
+.formatted-form .remember-me input,
+.formatted-form .remember-me label {
   vertical-align: middle;
 }
 
-.auth-form .remember-me input[type="checkbox"] {
+.formatted-form .remember-me input[type="checkbox"] {
   width: 20px;
   height: 20px;
   margin-right: 10px;
 }
 
-.auth-form #error_explanation {
+.formatted-form #error_explanation {
   background-color: #FFBABA;
   border-radius: 5px 0;
   box-sizing: border-box;
