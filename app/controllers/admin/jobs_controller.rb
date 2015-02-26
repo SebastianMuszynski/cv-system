@@ -1,19 +1,15 @@
 class Admin::JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  respond_to :html
 
   def index
     @jobs = Job.all
-    respond_with [:admin, @jobs]
   end
 
   def show
-    respond_with [:admin, @job]
   end
 
   def new
     @job = Job.new
-    respond_with [:admin, @job]
   end
 
   def edit
@@ -21,18 +17,29 @@ class Admin::JobsController < ApplicationController
 
   def create
     @job = Job.new job_params
-    @job.save
-    respond_with [:admin, @job]
+
+    if @job.save
+      redirect_to [:admin, @job], notice: 'Job was successfully created!'
+    else
+      render action: 'new'
+    end
   end
 
   def update
-    @job.update job_params
-    respond_with [:admin, @job]
+    if @job.update job_params
+      redirect_to [:admin, @job], notice: 'Job was successfully updated!'
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy
-    @job.destroy
-    respond_with [:admin, @job]
+    notice = if @job.destroy
+      'Job was successfully deleted.'
+    else 
+      'An error occured while deleting the job!'
+    end
+    redirect_to admin_jobs_url, notice: notice
   end
 
   private
@@ -42,7 +49,7 @@ class Admin::JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :logo, :deadline, :salary, :category)
+    params.require(:job).permit(:id, :title, :description, :logo, :deadline, :salary, :category)
   end
 
 end
