@@ -1,5 +1,4 @@
-<%= 5.times do %>
-  <% @feedback_status = ['accepted', 'rejected'].sample %>
+<% @cvs.each do |cv| %>
   <div class="cv-box">
     <div class="cv-preview">CV PREVIEW</div>
     <div class="cv-details">
@@ -11,15 +10,17 @@
         </tr>
         <tr>
           <td>Created date:</td>
-          <td>19/01/2015 14:10</td>
+          <td><%= cv.created_at.strftime("%H:%m %d.%m.%Y") %></td>
         </tr>
         <tr>
           <td>Feedback status:</td>
-          <td class="feedback-status <%= @feedback_status %>"><%= link_to @feedback_status, feedback_preview_cvs_path %></td>
+          <td class="feedback-status accepted">
+            <%= link_to 'accepted', feedback_preview_cvs_path %>
+          </td>
         </tr>
       </table>
       <div class="buttons center">
-        <button>Edit CV</button>
+        <%= link_to "Edit CV", edit_cv_path(cv), class: "big-btn" %>
         <button>Send CV</button>
       </div>
     </div>

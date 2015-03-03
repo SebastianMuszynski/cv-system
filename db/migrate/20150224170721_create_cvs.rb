@@ -3,13 +3,15 @@ class CreateCvs < ActiveRecord::Migration
     create_table :cvs do |t|
       t.string :name
       t.string :address
+      t.string :email
       t.string :phone_number
-      t.string :personal_statement
-      t.string :skills
-      t.string :qualifications
+      t.string :personal_profile
+      t.string :education
+      t.string :technical_skills
+      t.string :project_work
+      t.string :professional_experience
+      t.string :interests_and_achievements
       t.string :references
-      t.boolean :with_photo
-      t.string :experience
       t.references :user, index: true
       t.references :job, index: true
 

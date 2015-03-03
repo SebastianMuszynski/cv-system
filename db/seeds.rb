@@ -3,3 +3,4 @@
 #
 
 User.create(email: "K123456@kingston.ac.uk", password: "123123123", photo: "", first_name: "Sebastian", last_name: "Muszynski")
+StaffMember.create(email: "K123456@kingston.ac.uk", password: "123123123", first_name: "Sebastian", last_name: "Muszynski")

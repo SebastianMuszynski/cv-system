@@ -1,0 +1,40 @@
+<table class="cvs-table">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>address</th>
+      <th>email</th>
+      <th>phone_number</th>
+      <th>personal profile</th>
+      <th>education</th>
+      <th>technical skills</th>
+      <th>project work</th>
+      <th>professional experience</th>
+      <th>interests and achievements</th>
+      <th>references</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><%= @cv.name %></td>
+      <td><%= @cv.address %></td>
+      <td><%= @cv.email %></td>
+      <td><%= @cv.phone_number %></td>
+      <td><%= @cv.personal_profile %></td>
+      <td><%= @cv.education %></td>
+      <td><%= @cv.technical_skills %></td>
+      <td><%= @cv.project_work %></td>
+      <td><%= @cv.professional_experience %></td>
+      <td><%= @cv.interests_and_achievements %></td>
+      <td><%= @cv.references %></td> 
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="under-form-links"> 
+  <%= link_to 'Edit', edit_cv_path(@cv) %> |
+  <%= link_to 'Back', cvs_path %>
+</div>
+
