@@ -1,0 +1,8 @@
+.formatted-form
+  = form_for [:admin, @job] do |f|
+    = f.text_field :title, placeholder: 'Job title'
+    = f.text_field :description, placeholder: 'Job description'
+    = f.text_field :deadline, placeholder: 'Job deadline date'
+    = f.number_field :salary, placeholder: 'Job salary'
+    = f.text_field :category, placeholder: 'Job category'
+    = f.submit

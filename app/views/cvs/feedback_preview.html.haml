@@ -1,0 +1,19 @@
+.feedback
+  .feedback-info
+    %table
+      %tr
+        %td Staff member:
+        %td Michael Scofield
+      %tr
+        %td Created for:
+        %td Job spec title
+      %tr
+        %td Created date:
+        %td 19/01/2015 14:10
+      %tr
+        %td Feedback status:
+        %td{:class => "feedback-status #{@feedback_status}"}= @feedback_status
+    .buttons
+      %button Edit CV
+      %button Send new CV
+.feedback-cv-preview CV PREVIEW

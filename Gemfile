@@ -8,4 +8,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'carrierwave'
-gem 'simple_form', '~> 3.1.0'
+gem 'haml-rails', '~> 0.8.2'
+
+group :development do
+  gem "erb2haml"
+end

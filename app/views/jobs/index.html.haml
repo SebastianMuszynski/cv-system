@@ -1,0 +1,35 @@
+.filter-box
+  .search
+    %p Search:
+    %input{:type => "text"}/
+  .category
+    %p Filter by category:
+    %button Science
+    %button Computing
+    %button Engineering
+  .date-added
+    %p Filter by added date:
+    %button Newest
+    %button Oldest
+  .deadline
+    %p Filter by deadline:
+    %button Upcoming
+    %button Furthest
+- @jobs.each do |job|
+  .job-details
+    .job-title= job.title
+    - if job.logo?
+      .job-logo= job.logo
+    .job-deadline
+      %span.bold Deadline:
+      = job.deadline
+    .job-salary
+      %span.bold Salary:
+      = job.salary
+    .job-category
+      %span.bold Category:
+      = job.category
+    .job-description
+      = job.description
+    .send-button.center
+      = link_to "Apply", new_job_cv_path(job)

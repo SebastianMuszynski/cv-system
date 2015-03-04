@@ -1,0 +1,22 @@
+.center
+  = link_to "Create new CV", new_cv_path
+- @cvs.each do |cv|
+  .cv-box
+    .cv-preview CV PREVIEW
+    .cv-details
+      .header Details
+      %table
+        - if cv.job.present?
+          %tr
+            %td Created for:
+            %td= cv.job.title
+        %tr
+          %td Created date:
+          %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
+        %tr
+          %td Feedback status:
+          %td.feedback-status.accepted
+            = link_to 'accepted', feedback_preview_cvs_path
+      .buttons.center
+        = link_to "Edit CV", edit_cv_path(cv), class: "big-btn"
+        = link_to "Remove CV", cv_path(cv), data: { confirm: "Are you sure?" }, method: :delete, class: "big-btn"
