@@ -12,7 +12,10 @@
         %td 19/01/2015 14:10
       %tr
         %td Feedback status:
-        %td{:class => "feedback-status #{@feedback_status}"}= @feedback_status
+        - if @feedback.status
+          %td{:class => "feedback-status #{@feedback.status}"}= @feedback.status
+        - else
+          %td{:class => "feedback-status"} request for feedback
     .buttons
       %button Edit CV
       %button Send new CV

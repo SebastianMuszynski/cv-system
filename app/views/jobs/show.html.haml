@@ -1,0 +1,20 @@
+.job-details
+  .job-title= @job.title
+  - if @job.logo?
+    .job-logo= @job.logo
+  .job-deadline
+    %span.bold Deadline:
+    = @job.deadline
+  .job-salary
+    %span.bold Salary:
+    = @job.salary
+  .job-category
+    %span.bold Category:
+    = @job.category
+  .job-description
+    = @job.description
+  .send-button.center
+    = link_to "Apply", new_job_cv_path(@job)
+
+.under-form-links
+  = link_to 'List all jobs', jobs_path
