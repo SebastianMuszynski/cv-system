@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   end
   
   authenticate :user do
-    resources :jobs
+    resources :jobs, only: [:index, :show] do
+      resources :cvs
+    end
     resources :cvs do
       get 'feedback_preview', to: :feedback_preview, on: :collection
     end

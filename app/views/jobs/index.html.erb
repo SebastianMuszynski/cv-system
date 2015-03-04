@@ -46,7 +46,7 @@
 			<%= job.description %>
 		</div>
 		<div class="send-button center">
-			<button>Apply</button>
+			<%= link_to "Apply", new_job_cv_path(job) %>
 		</div>
 	</div>
 <% end %>

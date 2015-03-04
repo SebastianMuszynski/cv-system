@@ -2,10 +2,17 @@ class CvsController < ApplicationController
   before_action :set_cv, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cvs = Cv.all
+    if params[:job_id].present?
+      @cvs = Job.find(params[:job_id]).cvs
+    else
+      @cvs = Cv.all
+    end
   end
 
   def show
+    if params[:job_id].present?
+      @cv = Cv.where(job_id: params[:job_id], id: params[:id]).first
+    end
   end
 
   def new
@@ -16,12 +23,21 @@ class CvsController < ApplicationController
   end
 
   def create
-    @cv = Cv.new cv_params
-
-    if @cv.save
-      redirect_to @cv, notice: 'CV was successfully created!'
+    if params[:job_id].present?
+      @job = Job.find(params[:job_id])
+      @cv  = @job.cvs.new cv_params
+      if @cv.save
+        redirect_to [@job, @cv], notice: 'CV was successfully created!'
+      else
+        render action: 'new'
+      end      
     else
-      render action: 'new'
+      @cv = Cv.new cv_params
+      if @cv.save
+        redirect_to @cv, notice: 'CV was successfully created!'
+      else
+        render action: 'new'
+      end
     end
   end
 

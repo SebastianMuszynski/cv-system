@@ -8,10 +8,12 @@
     <div class="cv-details">
       <div class="header">Details</div>
       <table>
-        <tr>
-          <td>Created for:</td>
-          <td>Job spec title</td>
-        </tr>
+        <% if cv.job.present? %>
+          <tr>
+            <td>Created for:</td>
+            <td><%= cv.job.title %></td>
+          </tr>
+        <% end %>
         <tr>
           <td>Created date:</td>
           <td><%= cv.created_at.strftime("%H:%m %d.%m.%Y") %></td>
@@ -25,7 +27,7 @@
       </table>
       <div class="buttons center">
         <%= link_to "Edit CV", edit_cv_path(cv), class: "big-btn" %>
-        <button>Send CV</button>
+        <%= link_to "Remove CV", cv_path(cv), data: { confirm: "Are you sure?" }, method: :delete, class: "big-btn" %>
       </div>
     </div>
   </div>
