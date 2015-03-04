@@ -19,7 +19,7 @@
   .job-details
     .job-title= job.title
     - if job.logo?
-      .job-logo= job.logo
+      = image_tag job.logo, class: "job-logo"
     .job-deadline
       %span.bold Deadline:
       = job.deadline
