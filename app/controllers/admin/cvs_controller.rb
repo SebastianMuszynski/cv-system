@@ -1,8 +1,5 @@
 class Admin::CvsController < ApplicationController
   def index
-  end
-
-  def feedback_preview
-    @feedback_status = ['accepted', 'rejected'].sample
+    @cvs = Cv.all
   end
 end

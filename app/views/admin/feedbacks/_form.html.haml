@@ -1,0 +1,32 @@
+.formatted-form
+  %h1 Create new Feedback
+  %h2.sub-title Fill the fields below.
+  = form_for [:admin, @cv, @feedback] do |f|
+    %div
+      = f.label :personal_details, 'Personal details'
+      = f.text_field :personal_details
+    %div
+      = f.label :personal_profile, 'Personal profile'
+      = f.text_field :personal_profile
+    %div
+      = f.label :education, 'Education'
+      = f.email_field :education
+    %div
+      = f.label :technical_skills, 'Technical Skills'
+      = f.phone_field :technical_skills
+    %div
+      = f.label :project_work, 'Project work'
+      = f.text_field :project_work
+    %div
+      = f.label :professional_experience, 'Professional experience'
+      = f.text_field :professional_experience
+    %div
+      = f.label :interests_and_achievements, 'Interests and achievements'
+      = f.text_field :interests_and_achievements
+    %div
+      = f.label :references, 'References'
+      = f.text_field :references
+    %div
+      = f.label :other_comments, 'Other comments'
+      = f.text_field :other_comments
+    = f.submit

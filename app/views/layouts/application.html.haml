@@ -20,6 +20,7 @@
           - elsif staff_member_signed_in?
             %li= link_to "Jobs", admin_jobs_path
             %li= link_to "Student CVs", admin_cvs_path
+            %li= link_to "Feedbacks", admin_feedbacks_path
             %li= link_to "My account", edit_staff_member_registration_path
             %li= link_to "Log out", destroy_staff_member_session_path, method: :delete
           - else

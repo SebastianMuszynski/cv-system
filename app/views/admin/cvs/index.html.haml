@@ -1,0 +1,15 @@
+- @cvs.each do |cv|
+  .student-cv-box
+    %table
+      %tr
+        %td ID:
+        %td= cv.id
+      - if cv.job
+        %tr
+          %td Created for:
+          %td= link_to cv.job.title, job_path(cv.job)
+      %tr
+        %td Created date:
+        %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
+    .buttons.center
+      = link_to "Give feedback", new_admin_cv_feedback_path(cv)

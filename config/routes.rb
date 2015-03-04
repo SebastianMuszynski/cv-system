@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   
   namespace :admin do
     authenticate :staff_member do
-      resources :cvs
+      resources :cvs do
+        resources :feedbacks
+      end
+      resources :feedbacks
       resources :jobs
       root 'jobs#index', as: :authenticated_admin_root
     end
@@ -20,7 +23,7 @@ Rails.application.routes.draw do
       resources :cvs
     end
     resources :cvs do
-      get 'feedback_preview', to: :feedback_preview, on: :collection
+      resources :feedbacks, only: [:show]
     end
     root 'cvs#index', as: :authenticated_user_root
   end
