@@ -1,32 +1,33 @@
 = render 'bg'
-%table.cvs-table
-  %thead
-    %tr
-      %th name
-      %th address
-      %th email
-      %th phone_number
-      %th personal profile
-      %th education
-      %th technical skills
-      %th project work
-      %th professional experience
-      %th interests and achievements
-      %th references
-  %tbody
-    %tr
-      %td= @cv.name
-      %td= @cv.address
-      %td= @cv.email
-      %td= @cv.phone_number
-      %td= @cv.personal_profile
-      %td= @cv.education
-      %td= @cv.technical_skills
-      %td= @cv.project_work
-      %td= @cv.professional_experience
-      %td= @cv.interests_and_achievements
-      %td= @cv.references
-.under-form-links
-  = link_to 'Edit', edit_cv_path(@cv)
-  |
-  \#{link_to 'Back', cvs_path}
+.white-background
+  %table.cvs-table
+    %thead
+      %tr
+        %th name
+        %th address
+        %th email
+        %th phone_number
+        %th personal profile
+        %th education
+        %th technical skills
+        %th project work
+        %th professional experience
+        %th interests and achievements
+        %th references
+    %tbody
+      %tr
+        %td= @cv.name
+        %td= @cv.address
+        %td= @cv.email
+        %td= @cv.phone_number
+        %td= @cv.personal_profile
+        %td= @cv.education
+        %td= @cv.technical_skills
+        %td= @cv.project_work
+        %td= @cv.professional_experience
+        %td= @cv.interests_and_achievements
+        %td= @cv.references
+  .under-form-links
+    = link_to 'Edit', edit_cv_path(@cv), class: "link"
+    |
+    = link_to 'Back', cvs_path, class: "link"

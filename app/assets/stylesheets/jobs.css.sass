@@ -32,44 +32,54 @@
   padding: 5px 20px
 
 .job-details
-  background-color: #BABABA
+  background-color: white
+  box-shadow: 0 5px 10px black
   margin: 50px auto
-  padding: 20px
+  padding: 10px
   padding-bottom: 10px
   position: relative
   width: 760px  
   min-height: 240px
 
+  .job-content  
+    padding: 10px 20px 15px
+
   .job-logo
     background-color: #404040
     color: white
-    position: absolute
-    top: 65px
-    right: 0
-    height: 150px
+    float: right
     line-height: 150px
-    margin: 30px 20px
     text-align: center
-    width: 150px
-    height: 150px
+    width: 80px
+    height: 80px
 
   .job-title
     font-weight: bold
     font-size: 20px
     margin-bottom: 20px
     color: white
-    background-color: #404040
+    background-color: rgba(0,0,0,.9)
     line-height: 50px
     text-align: center
-    border-bottom: 3px solid black
+    border-bottom: 3px solid #EB9605
 
-  .job-description p
-    margin-bottom: 15px
-    text-align: justify
-    max-width: 590px
-    text-indent: 20px
+  .job-description 
+    margin-top: 10px
+    p
+      margin-bottom: 15px
+      text-align: justify
+      max-width: 590px
+      text-indent: 20px
 
-  .send-button
-    clear: both
-    button
-      width: 200px 
+  .job-description,
+  .job-deadline, 
+  .job-salary, 
+  .job-category
+    line-height: 1.5em
+
+  .apply-link
+    text-align: center
+    margin: 20px
+    a
+      font-size: 22px
+      text-transform: uppercase
