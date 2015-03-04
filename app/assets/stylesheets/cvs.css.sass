@@ -1,0 +1,50 @@
+.cv-box
+  background-color: #bababa
+  width: 800px
+  min-height: 260px
+  margin: 50px auto
+  display: table
+
+.cv-preview, .cv-details
+  display: table-cell
+  width: 400px
+
+.cv-preview
+  vertical-align: middle
+  text-align: center
+  font-size: 30px
+
+.cv-details
+  border-left: 1px solid black
+
+  .header
+    border-bottom: 1px solid black
+    font-weight: bold
+    line-height: 50px
+    text-align: center
+
+  table
+    padding: 20px 25px
+    tr
+      line-height: 30px
+      td:first-child
+        padding-right: 10px
+        font-weight: bold
+
+  .buttons button
+    display: inline-block
+    margin: 0 10px
+
+.feedback-status
+  font-weight: bold
+  &.accepted, &.accepted a
+    color: green
+  &.rejected, &.rejected a
+    color: red
+
+.cv-form
+  width: 800px
+  label 
+    position: absolute
+    left: 0
+    margin-top: 33px

@@ -1,0 +1,64 @@
+*
+  margin: 0
+  padding: 0
+  font-family: 'Ubuntu', 'Verdana', sans-serif
+  font-size: 16px
+
+.bold
+  font-weight: bold
+
+.center
+  text-align: center
+
+button, 
+input[type="submit"]
+  background-color: #404040
+  border: none
+  border-bottom: 3px solid #99ccff
+  border-radius: 5px
+  color: white
+  height: 50px
+  padding: 0 50px
+  cursor: pointer
+  outline: none
+  transition: .5s opacity ease
+
+button:hover, 
+input[type="submit"]:hover
+  opacity: .9
+
+input
+  outline: none
+  transition: .5s border-bottom ease
+  &:focus
+    border-bottom: 3px solid #99ccff
+
+header
+  background-color: #404040
+  height: 120px
+  border-bottom: 5px solid #99ccff
+
+  #logo
+    display: inline-block
+
+    a img
+      margin: 30px 100px 0
+      width: 200px
+
+  nav
+    display: inline-block
+    position: absolute
+    top: 35px
+    right: 100px
+    ul
+      list-style-type: none
+      li
+        display: inline-block
+        margin-left: 20px
+        a
+          display: block
+          padding: 15px 30px
+          color: white
+          text-decoration: none
+          &:hover
+            color: grey
