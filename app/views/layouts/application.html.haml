@@ -8,8 +8,7 @@
     = csrf_meta_tags
   %body
     %header
-      #logo
-        = link_to image_tag("logo.png"), root_path
+      = link_to "SEC Placements", root_path, class: "logo"
       %nav
         %ul
           - if user_signed_in?
