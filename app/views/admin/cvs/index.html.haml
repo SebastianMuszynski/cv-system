@@ -1,7 +1,7 @@
 = render 'bg'
 
 - @cvs.each do |cv|
-  .cv-box
+  .preview-box
     .header= "CV ##{cv.id}"
     %table
       - if cv.job.present?

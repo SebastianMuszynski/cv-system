@@ -1,28 +1,10 @@
 = render 'bg'
-%table.feedbacks-table
-  %thead
-    %tr
-      %th Personal_details
-      %th Personal_profile
-      %th Education
-      %th Technical_skills
-      %th Project_work
-      %th Professional_experience
-      %th Interests_and_achievements
-      %th References
-      %th Other_comments
-  %tbody
-    - @feedbacks.each do |feedback|
+- @feedbacks.each do |feedback|
+  .preview-box
+    .header= "Feedback ##{feedback.id}"
+    %table
       %tr
-        %td= feedback.personal_details
-        %td= feedback.personal_profile
-        %td= feedback.education
-        %td= feedback.technical_skills
-        %td= feedback.project_work
-        %td= feedback.professional_experience
-        %td= feedback.interests_and_achievements
-        %td= feedback.references
-        %td= feedback.other_comments
-        %td= link_to 'Show', [:admin, @cv, feedback]
-        %td= link_to 'Edit', edit_admin_feedback_path(feedback)
-        %td= link_to 'Destroy', [:admin, @cv, feedback], method: :delete, data: { confirm: 'Are you sure?' }
+        %td Created date:
+        %td= feedback.created_at.strftime("%H:%m %d.%m.%Y")
+    .center
+      = link_to 'Show', admin_feedback_path(feedback), class: "link"
