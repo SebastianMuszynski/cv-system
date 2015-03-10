@@ -1,22 +1,25 @@
 = render 'bg'
-%table.jobs-table
-  %thead
-    %tr
-      %th Job title
-      %th Job description
-      %th Job salary
-      %th Job category
-      %th Job logo
-  %tbody
-    - @jobs.each do |job|
-      %tr
-        %td= job.title
-        %td= job.description
-        %td= job.salary
-        %td= job.category
-        %td= job.logo || "-"
-        %td= link_to 'Show', [:admin, job]
-        %td= link_to 'Edit', edit_admin_job_path(job)
-        %td= link_to 'Destroy', [:admin, job], method: :delete, data: { confirm: 'Are you sure?' }
-.under-form-links
-  = link_to 'New Job', new_admin_job_path
+
+.centered-btn= link_to 'New Job', new_admin_job_path, class: "link"
+
+- @jobs.each do |job|
+  .job-details
+    .job-title= job.title
+    .job-content
+      - if job.logo?
+        = image_tag job.logo, class: "job-logo"
+      .job-deadline
+        %span.bold Deadline:
+        = job.deadline
+      .job-salary
+        %span.bold Salary:
+        = job.salary
+      .job-category
+        %span.bold Category:
+        = job.category
+      .job-description
+        = job.description
+    .center
+      = link_to 'Edit', edit_admin_job_path(job), class: "link"
+      |
+      = link_to 'Remove', [:admin, job], method: :delete, data: { confirm: 'Are you sure?' }, class: "link"

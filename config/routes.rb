@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :cvs do
       resources :feedbacks, only: [:show]
     end
-    root 'cvs#index', as: :authenticated_user_root
+    root 'jobs#index', as: :authenticated_user_root
   end
 
   get '*path', to: redirect('/')

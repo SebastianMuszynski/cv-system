@@ -1,20 +1,24 @@
 = render 'bg'
-%table.jobs-table
-  %thead
-    %tr
-      %th Job title
-      %th Job description
-      %th Job salary
-      %th Job category
-      %th Job logo
-  %tbody
-    %tr
-      %td= @job.title
-      %td= @job.description
-      %td= @job.salary
-      %td= @job.category
-      %td= @job.logo
-.under-form-links
-  = link_to 'Edit', edit_admin_job_path(@job)
-  |
-  \#{link_to 'Back', admin_jobs_path}
+
+.job-details
+  .job-title= @job.title
+  .job-content
+    - if @job.logo?
+      = image_tag @job.logo, class: "job-logo"
+    .job-deadline
+      %span.bold Deadline:
+      = @job.deadline
+    .job-salary
+      %span.bold Salary:
+      = @job.salary
+    .job-category
+      %span.bold Category:
+      = @job.category
+    .job-description
+      = @job.description
+  .center
+    = link_to 'Edit', edit_admin_job_path(@job), class: "link"
+    |
+    = link_to 'Remove', [:admin, @job], method: :delete, data: { confirm: 'Are you sure?' }, class: "link"
+
+.centered-btn= link_to 'Back to jobs page', admin_jobs_path, class: "link"

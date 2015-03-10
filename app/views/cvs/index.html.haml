@@ -1,5 +1,5 @@
 = render 'bg'
-.create-cv-link= link_to "Create new CV", new_cv_path, class: 'link'
+.centered-btn= link_to "Create new CV", new_cv_path, class: 'link'
 - @cvs.each_with_index do |cv, index|
   .cv-box
     .header= "CV ##{index + 1}"
