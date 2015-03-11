@@ -1,5 +1,5 @@
 .formatted-form.cv-form
-  %h1 Your CV
+  %h1= "CV for #{@job.title}"
   %h2.sub-title Fill the fields below.
   = form_for [@job, @cv] do |f|
     .field

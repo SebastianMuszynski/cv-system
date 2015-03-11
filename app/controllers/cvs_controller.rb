@@ -17,9 +17,11 @@ class CvsController < ApplicationController
 
   def new
     @cv = Cv.new
+    @job = Job.find(params[:job_id]) if params[:job_id].present?
   end
 
   def edit
+    @job = @cv.job
   end
 
   def create
