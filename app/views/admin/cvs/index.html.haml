@@ -7,7 +7,7 @@
       - if cv.job.present?
         %tr
           %td Created for:
-          %td= link_to cv.job.title, job_path(cv.job)
+          %td= link_to cv.job.title, admin_job_path(cv.job)
       %tr
         %td Created date:
         %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
