@@ -12,6 +12,9 @@
         = link_to "SEC Placements", jobs_path, class: "logo"
       - elsif staff_member_signed_in?
         = link_to "SEC Placements", admin_jobs_path, class: "logo"
+      - else
+        = link_to "SEC Placements", root_path, class: "logo"
+        
       %nav
         %ul
           - if user_signed_in?
