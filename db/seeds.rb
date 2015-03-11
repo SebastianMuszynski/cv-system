@@ -14,3 +14,9 @@ User.create(email: "K111116@kingston.ac.uk", password: "Chiseng1", photo: "https
 User.create(email: "K243513@kingston.ac.uk", password: "SwimProf", photo: "https://s3.amazonaws.com/uifaces/faces/twitter/joostvanderree/128.jpg", first_name: "Kim", last_name: "Phillips")
 
 StaffMember.create(email: "K123456@kingston.ac.uk", password: "123123123", first_name: "Sebastian", last_name: "Muszynski")
+StaffMember.create(email: "KSM0001@kingston.ac.uk", password: "Elephant1", first_name: "John", last_name: "Bennon")
+StaffMember.create(email: "KSM0002@kingston.ac.uk", password: "MonkeyPunch", first_name: "Adam", last_name: "Plunder")
+StaffMember.create(email: "KSM0003@kingston.ac.uk", password: "HelloWorld", first_name: "Eva", last_name: "Dendez")
+StaffMember.create(email: "KSM0004@kingston.ac.uk", password: "Chap1979", first_name: "Boris", last_name: "Jobson")
+StaffMember.create(email: "KSM0005@kingston.ac.uk", password: "Oscars2014", first_name: "Nicole", last_name: "Stiegman")
+
