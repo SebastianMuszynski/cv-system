@@ -1,40 +1,40 @@
 .formatted-form.cv-form
-  %h1 Create new CV
+  %h1= "CV for #{@job.title}"
   %h2.sub-title Fill the fields below.
   = form_for [@job, @cv] do |f|
-    %div
+    .field
       = f.label :name, 'Your full name'
       = f.text_field :name, placeholder: 'Your full name'
-    %div
+    .field
       = f.label :address, 'Address'
       = f.text_field :address, placeholder: 'Address'
-    %div
+    .field
       = f.label :email, 'Email'
       = f.email_field :email, placeholder: 'Email'
-    %div
+    .field
       = f.label :phone_number, 'Phone number'
       = f.phone_field :phone_number, placeholder: 'Phone number'
-    %div
+    .field
       = f.label :personal_profile, 'Personal profile'
-      = f.text_field :personal_profile, placeholder: 'Personal profile'
-    %div
+      = f.text_area :personal_profile, placeholder: 'Personal profile'
+    .field
       = f.label :education, 'Education'
-      = f.text_field :education, placeholder: 'Education'
-    %div
+      = f.text_area :education, placeholder: 'Education'
+    .field
       = f.label :technical_skills, 'Technical skills'
-      = f.text_field :technical_skills, placeholder: 'Technical skills'
-    %div
+      = f.text_area :technical_skills, placeholder: 'Technical skills'
+    .field
       = f.label :project_work, 'Project work'
-      = f.text_field :project_work, placeholder: 'Project work'
-    %div
+      = f.text_area :project_work, placeholder: 'Project work'
+    .field
       = f.label :professional_experience, 'Professional experience'
-      = f.text_field :professional_experience, placeholder: 'Professional experience'
-    %div
+      = f.text_area :professional_experience, placeholder: 'Professional experience'
+    .field
       = f.label :interests_and_achievements, 'Interests and achievements'
-      = f.text_field :interests_and_achievements, placeholder: 'Interests and achievements'
-    %div
+      = f.text_area :interests_and_achievements, placeholder: 'Interests and achievements'
+    .field
       = f.label :references, 'References'
-      = f.text_field :references, placeholder: 'References'
+      = f.text_area :references, placeholder: 'References'
     = f.submit
   .under-form-links
     = link_to '↫ BACK', cvs_path, class: "link"

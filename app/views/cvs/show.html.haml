@@ -1,32 +1,39 @@
 = render 'bg'
-.white-background
-  %table.cvs-table
-    %thead
-      %tr
-        %th name
-        %th address
-        %th email
-        %th phone_number
-        %th personal profile
-        %th education
-        %th technical skills
-        %th project work
-        %th professional experience
-        %th interests and achievements
-        %th references
-    %tbody
-      %tr
-        %td= @cv.name
-        %td= @cv.address
-        %td= @cv.email
-        %td= @cv.phone_number
-        %td= @cv.personal_profile
-        %td= @cv.education
-        %td= @cv.technical_skills
-        %td= @cv.project_work
-        %td= @cv.professional_experience
-        %td= @cv.interests_and_achievements
-        %td= @cv.references
+.cv-template
+  .cv-part
+    .personal-details
+      %p= @cv.name
+      %p= @cv.address
+      %p= "#{@cv.email}, #{@cv.phone_number}"
+
+  .cv-part
+    .header Personal Profile
+    %p= @cv.personal_profile
+
+  .cv-part
+    .header Education
+    %p= @cv.education
+
+  .cv-part
+    .header Technical Skills
+    %p= @cv.technical_skills
+
+  .cv-part
+    .header Project Work
+    %p= @cv.project_work
+
+  .cv-part
+    .header Professional Experience
+    %p= @cv.professional_experience
+
+  .cv-part
+    .header Interests and Achievements
+    %p= @cv.interests_and_achievements
+
+  .cv-part
+    .header References
+    %p= @cv.references
+  
   .under-form-links
     = link_to 'Edit', edit_cv_path(@cv), class: "link"
     |
