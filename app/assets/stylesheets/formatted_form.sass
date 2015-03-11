@@ -1,3 +1,25 @@
+button, 
+input[type="submit"]
+  background-color: rgba(0,0,0,.9)
+  font-size: 20px
+  border: none
+  border-radius: 5px
+  color: white
+  height: 50px
+  cursor: pointer
+  outline: none
+  transition: .5s opacity ease
+
+button:hover, 
+input[type="submit"]:hover
+  opacity: .9
+
+input, textarea
+  outline: none
+  transition: .5s border-bottom ease
+  &:focus
+    border-bottom: 3px solid orange
+
 .formatted-form
   margin: 40px auto 0
   padding: 30px
@@ -20,7 +42,8 @@
     font-style: italic
 
   input:not([type="email"]),
-  input:not([type="password"])
+  input:not([type="password"]),
+  textarea
     margin: 15px 0
     padding: 15px
     width: 350px
