@@ -20,3 +20,29 @@ StaffMember.create(email: "KSM0003@kingston.ac.uk", password: "HelloWorld", firs
 StaffMember.create(email: "KSM0004@kingston.ac.uk", password: "Chap1979", first_name: "Boris", last_name: "Jobson")
 StaffMember.create(email: "KSM0005@kingston.ac.uk", password: "Oscars2014", first_name: "Nicole", last_name: "Stiegman")
 
+Job.create(title: "Software Engineer", description:"", logo:"", deadline: Date.today + 4.months, category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+
+Job.create(title: "", description:"", logo:"", deadline: "", category:"", salary: )
+create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "logo"
+    t.date     "deadline"
+    t.string   "category"
+    t.decimal  "salary",      precision: 8, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
