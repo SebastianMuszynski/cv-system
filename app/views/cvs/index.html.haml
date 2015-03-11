@@ -2,28 +2,29 @@
 
 / .centered-btn= link_to "Create new CV", new_cv_path, class: 'link'
 
-- @cvs.each_with_index do |cv, index|
-  .preview-box
-    .header= "CV ##{index + 1}"
-    %table
-      - if cv.job.present?
+.preview-boxes
+  - @cvs.each_with_index do |cv, index|
+    .preview-box
+      .header= "CV ##{index + 1}"
+      %table
+        - if cv.job.present?
+          %tr
+            %td Created for:
+            %td= link_to cv.job.title, job_path(cv.job)
         %tr
-          %td Created for:
-          %td= link_to cv.job.title, job_path(cv.job)
-      %tr
-        %td Created date:
-        %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
-      %tr
-        %td Feedback status:
-        - if cv.feedback.present?
-          %td.feedback-status{class: "#{cv.feedback.status}"}
-            = link_to cv.feedback.status, feedback_path(cv.feedback)
-        - else
-          %td.feedback-status 
-            pending
-    .links
-      = link_to "Show CV", cv_path(cv), class: "link"
-      |
-      = link_to "Edit CV", edit_cv_path(cv), class: "link"
-      |
-      = link_to "Remove CV", cv_path(cv), data: { confirm: "Are you sure?" }, method: :delete, class: "link"
+          %td Created date:
+          %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
+        %tr
+          %td Feedback status:
+          - if cv.feedback.present?
+            %td.feedback-status{class: "#{cv.feedback.status}"}
+              = link_to cv.feedback.status, feedback_path(cv.feedback)
+          - else
+            %td.feedback-status 
+              pending
+      .links
+        = link_to "Show CV", cv_path(cv), class: "link"
+        |
+        = link_to "Edit CV", edit_cv_path(cv), class: "link"
+        |
+        = link_to "Remove CV", cv_path(cv), data: { confirm: "Are you sure?" }, method: :delete, class: "link"
