@@ -1,5 +1,5 @@
 .formatted-form
-  %h1 Add new job
+  %h1 Job form
   %h2.sub-title Fill the fields below.
   = form_for [:admin, @job] do |f|
     = f.text_field :title, placeholder: 'Job title'
