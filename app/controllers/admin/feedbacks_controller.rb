@@ -10,6 +10,7 @@ class Admin::FeedbacksController < ApplicationController
 
   def new
     @feedback = Feedback.new
+    @cv = Cv.find(params[:cv_id]) if params[:cv_id].present?
   end
 
   def edit
