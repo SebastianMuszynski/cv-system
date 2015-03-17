@@ -50,3 +50,7 @@ Cv.create(cv_params.merge({name:"Emily Bellar",address:"34 Pillsbury Rd, Surbito
 Cv.create(cv_params.merge({name:"Alice Booper",address:" Penrhyn Road, Kingston upon Thames, Surrey KT1 2EE", email:"K876401@kingston.ac.uk", phone_number:"07753672385" , user_id:8, job_id:8}))
 Cv.create(cv_params.merge({name:"Jet Li",address:"93 Legger St, Strawberry Hill, Twickenham, TW1 4ST", email:"K111116@kingston.ac.uk", phone_number:"07563735599" , user_id:9, job_id:9}))
 Cv.create(cv_params.merge({name:"Kim Phillips",address:"Sherpa Pl, Pimlico, Surrey SW1 9KM", email:"K243513@kingston.ac.uk", phone_number:"07111346855" , user_id:10, job_id:9}))
+
+Cv.find_each do |cv|
+  Feedback.create(status: nil, personal_details: "You can provide your personal email.", personal_profile: "A little bit too short.", education: "Perfect!", technical_skills: "You can also mention about programming skills.", project_work: "Detailed description, good.", professional_experience: "Try to be as specific as it is possible when it comes to writing the dates.", interests_and_achievements: "What about achievements?", references: "OK.", other_comments: "It's good! Try to spend some time on improving Interests and Achievements section.", staff_member_id: (1..StaffMember.count).to_a.sample, cv_id: cv.id)
+end

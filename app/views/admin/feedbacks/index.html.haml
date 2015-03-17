@@ -6,5 +6,11 @@
       %tr
         %td Created date:
         %td= feedback.created_at.strftime("%H:%m %d.%m.%Y")
+      %tr
+        %td Staff member name:
+        %td= "#{feedback.staff_member.first_name} #{feedback.staff_member.last_name}"
+      %tr
+        %td Student name:
+        %td= "#{feedback.cv.user.first_name} #{feedback.cv.user.last_name}"
     .center
-      = link_to 'Show', admin_feedback_path(feedback), class: "link"
+      = link_to 'Preview', admin_feedback_path(feedback), class: "link"
