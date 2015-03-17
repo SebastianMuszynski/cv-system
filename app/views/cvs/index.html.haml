@@ -16,9 +16,9 @@
           %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
         %tr
           %td Feedback status:
-          - if cv.feedback.present?
+          - if cv.feedback.present? && cv.feedback.status.present?
             %td.feedback-status{class: "#{cv.feedback.status}"}
-              = link_to cv.feedback.status, feedback_path(cv.feedback)
+              = link_to cv.feedback.status, [cv, cv.feedback]
           - else
             %td.feedback-status 
               pending
