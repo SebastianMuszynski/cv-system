@@ -6,39 +6,39 @@
       %p= @feedback.cv.name
       %p= @feedback.cv.address
       %p= "#{@feedback.cv.email}, #{@feedback.cv.phone_number}"
-    %p= @feedback.personal_details
+    %p.feedback-comment= @feedback.personal_details
 
   .cv-part
     .header Personal Profile
     %p= @feedback.cv.personal_profile
-    %p= @feedback.personal_profile
+    %p.feedback-comment= @feedback.personal_profile
 
   .cv-part
     .header Education
     %p= @feedback.cv.education
-    %p= @feedback.education
+    %p.feedback-comment= @feedback.education
 
   .cv-part
     .header Technical Skills
     %p= @feedback.cv.technical_skills
-    %p= @feedback.technical_skills
+    %p.feedback-comment= @feedback.technical_skills
 
   .cv-part
     .header Project Work
     %p= @feedback.cv.project_work
-    %p= @feedback.project_work
+    %p.feedback-comment= @feedback.project_work
 
   .cv-part
     .header Professional Experience
     %p= @feedback.cv.professional_experience
-    %p= @feedback.professional_experience
+    %p.feedback-comment= @feedback.professional_experience
 
   .cv-part
     .header Interests and Achievements
     %p= @feedback.cv.interests_and_achievements
-    %p= @feedback.interests_and_achievements
+    %p.feedback-comment= @feedback.interests_and_achievements
 
   .cv-part
     .header References
     %p= @feedback.cv.references
-    %p= @feedback.references
+    %p.feedback-comment= @feedback.references
