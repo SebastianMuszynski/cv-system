@@ -18,6 +18,8 @@ class Admin::FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new feedback_params
+    @feedback.staff_member_id = current_staff_member.id
+    @feedback.cv_id = params[:cv_id]
 
     if @feedback.save
       redirect_to admin_feedbacks_url, notice: 'Feedback was successfully created!'
@@ -51,6 +53,6 @@ class Admin::FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit(:id, :status, :personal_details, :personal_profile, :education, :technical_skills, :project_work, 
-      :professional_experience, :interests_and_achievements, :references, :other_comments, :job_id, :user_id, :created_at)
+      :professional_experience, :interests_and_achievements, :references, :other_comments, :cv_id, :staff_member_id, :created_at)
   end
 end
