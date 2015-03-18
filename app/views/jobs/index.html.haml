@@ -1,21 +1,21 @@
 = render 'bg'
-.filter-box
-  .search
-    %p Search:
-    %input{:type => "text"}/
-  .category
-    %p Filter by category:
-    %button Science
-    %button Computing
-    %button Engineering
-  .date-added
-    %p Filter by added date:
-    %button Newest
-    %button Oldest
-  .deadline
-    %p Filter by deadline:
-    %button Upcoming
-    %button Furthest
+/ .filter-box
+/   .search
+/     %p Search:
+/     %input{:type => "text"}/
+/   .category
+/     %p Filter by category:
+/     %button Science
+/     %button Computing
+/     %button Engineering
+/   .date-added
+/     %p Filter by added date:
+/     %button Newest
+/     %button Oldest
+/   .deadline
+/     %p Filter by deadline:
+/     %button Upcoming
+/     %button Furthest
 - @jobs.each do |job|
   .job-details
     .job-title= job.title
