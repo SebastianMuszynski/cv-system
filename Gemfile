@@ -10,6 +10,7 @@ gem 'haml-rails', '~> 0.8.2'
 gem 'sass-rails', '~> 5.0.1'
 gem 'devise'
 gem 'carrierwave'
+gem 'state_machine', '~> 1.2.0'
 
 group :development do
   gem "erb2haml"

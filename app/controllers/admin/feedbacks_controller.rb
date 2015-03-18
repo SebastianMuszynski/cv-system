@@ -21,6 +21,14 @@ class Admin::FeedbacksController < ApplicationController
     @feedback.staff_member_id = current_staff_member.id
     @feedback.cv_id = params[:cv_id]
 
+    cv = Cv.find params[:cv_id]
+    case params[:commit]
+    when 'ACCEPT'
+      cv.accept 
+    when 'REJECT'
+      cv.reject
+    end
+
     if @feedback.save
       redirect_to admin_feedbacks_url, notice: 'Feedback was successfully created!'
     else
