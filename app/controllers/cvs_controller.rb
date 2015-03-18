@@ -27,14 +27,19 @@ class CvsController < ApplicationController
   def create
     if params[:job_id].present?
       @job = Job.find(params[:job_id])
-      @cv  = @job.cvs.new cv_params
+      
+      @cv  = @job.cvs.new(cv_params)
+      @cv.user_id = current_user.id
+
       if @cv.save
         redirect_to [@job, @cv], notice: 'CV was successfully created!'
       else
         render action: 'new'
       end      
     else
-      @cv = Cv.new cv_params
+      @cv  = @job.cvs.new(cv_params)
+      @cv.user_id = current_user.id
+      
       if @cv.save
         redirect_to @cv, notice: 'CV was successfully created!'
       else

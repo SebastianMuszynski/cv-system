@@ -24,8 +24,10 @@ class Admin::FeedbacksController < ApplicationController
     cv = Cv.find params[:cv_id]
     case params[:commit]
     when 'ACCEPT'
+      @feedback.status = 'accepted'
       cv.accept 
     when 'REJECT'
+      @feedback.status = 'rejected'
       cv.reject
     end
 

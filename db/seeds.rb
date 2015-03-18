@@ -40,17 +40,17 @@ cv_params = {
   references:"References available on request" 
 }
 
-Cv.create(cv_params.merge({name:"Sebastian Muszynski",address:"34 Duffield Rd, Salford, Lancashire, M6 7RD", email:"K123456@kingston.ac.uk", phone_number:"07437840050", user_id: 1, job_id: 9}))
-Cv.create(cv_params.merge({name:"Abraham McLeod",address:"64 Zoo Lane, Kingston, Surrey, KT1 3LK", email:"K395671@kingston.ac.uk", phone_number:"07537585563", user_id:2, job_id:8}))
-Cv.create(cv_params.merge({name:"John Smith",address:"12 Ipreth av, Manchester, Lancashire, M4 1MG", email:"K193486@kingston.ac.uk", phone_number:"07367754746" , user_id:3, job_id:4}))
-Cv.create(cv_params.merge({name:"Pamela Henderson",address:"74 Portland rd, Clapham, Surrey,SW1 3HD", email:"K432354@kingston.ac.uk", phone_number:"07353789443" , user_id:4, job_id:2}))
-Cv.create(cv_params.merge({name:"Craig Farber",address:"23 Bulls St, Wimbledon, Surrey,SW1 5BV", email:"K735692@kingston.ac.uk", phone_number:"07459371044" , user_id:5, job_id:7}))
-Cv.create(cv_params.merge({name:"Jane McAllison",address:"54 Johnfosters Av, Norbiton, Surrey, SW1 7SH", email:"K174682@kingston.ac.uk", phone_number:"07445684463" , user_id:6, job_id:9}))
-Cv.create(cv_params.merge({name:"Emily Bellar",address:"34 Pillsbury Rd, Surbiton, Surrey, SW2 1YT", email:"K222987@kingston.ac.uk", phone_number:"07357451736" , user_id:7, job_id:1}))
-Cv.create(cv_params.merge({name:"Alice Booper",address:" Penrhyn Road, Kingston upon Thames, Surrey KT1 2EE", email:"K876401@kingston.ac.uk", phone_number:"07753672385" , user_id:8, job_id:8}))
-Cv.create(cv_params.merge({name:"Jet Li",address:"93 Legger St, Strawberry Hill, Twickenham, TW1 4ST", email:"K111116@kingston.ac.uk", phone_number:"07563735599" , user_id:9, job_id:9}))
-Cv.create(cv_params.merge({name:"Kim Phillips",address:"Sherpa Pl, Pimlico, Surrey SW1 9KM", email:"K243513@kingston.ac.uk", phone_number:"07111346855" , user_id:10, job_id:9}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Sebastian Muszynski",address:"34 Duffield Rd, Salford, Lancashire, M6 7RD", email:"K123456@kingston.ac.uk", phone_number:"07437840050", user_id: 1, job_id: 9}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Abraham McLeod",address:"64 Zoo Lane, Kingston, Surrey, KT1 3LK", email:"K395671@kingston.ac.uk", phone_number:"07537585563", user_id:2, job_id:8}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"John Smith",address:"12 Ipreth av, Manchester, Lancashire, M4 1MG", email:"K193486@kingston.ac.uk", phone_number:"07367754746" , user_id:3, job_id:4}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Pamela Henderson",address:"74 Portland rd, Clapham, Surrey,SW1 3HD", email:"K432354@kingston.ac.uk", phone_number:"07353789443" , user_id:4, job_id:2}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Craig Farber",address:"23 Bulls St, Wimbledon, Surrey,SW1 5BV", email:"K735692@kingston.ac.uk", phone_number:"07459371044" , user_id:5, job_id:7}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Jane McAllison",address:"54 Johnfosters Av, Norbiton, Surrey, SW1 7SH", email:"K174682@kingston.ac.uk", phone_number:"07445684463" , user_id:6, job_id:9}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Emily Bellar",address:"34 Pillsbury Rd, Surbiton, Surrey, SW2 1YT", email:"K222987@kingston.ac.uk", phone_number:"07357451736" , user_id:7, job_id:1}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Alice Booper",address:" Penrhyn Road, Kingston upon Thames, Surrey KT1 2EE", email:"K876401@kingston.ac.uk", phone_number:"07753672385" , user_id:8, job_id:8}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Jet Li",address:"93 Legger St, Strawberry Hill, Twickenham, TW1 4ST", email:"K111116@kingston.ac.uk", phone_number:"07563735599" , user_id:9, job_id:9}))
+Cv.create(cv_params.merge({status: [:accepted, :rejected].sample, name:"Kim Phillips",address:"Sherpa Pl, Pimlico, Surrey SW1 9KM", email:"K243513@kingston.ac.uk", phone_number:"07111346855" , user_id:10, job_id:9}))
 
 Cv.find_each do |cv|
-  Feedback.create(personal_details: "You can provide your personal email.", personal_profile: "A little bit too short.", education: "Perfect!", technical_skills: "You can also mention about programming skills.", project_work: "Detailed description, good.", professional_experience: "Try to be as specific as it is possible when it comes to writing the dates.", interests_and_achievements: "What about achievements?", references: "OK.", other_comments: "It's good! Try to spend some time on improving Interests and Achievements section.", staff_member_id: (1..StaffMember.count).to_a.sample, cv_id: cv.id)
+  Feedback.create(status: cv.status, personal_details: "You can provide your personal email.", personal_profile: "A little bit too short.", education: "Perfect!", technical_skills: "You can also mention about programming skills.", project_work: "Detailed description, good.", professional_experience: "Try to be as specific as it is possible when it comes to writing the dates.", interests_and_achievements: "What about achievements?", references: "OK.", other_comments: "It's good! Try to spend some time on improving Interests and Achievements section.", staff_member_id: (1..StaffMember.count).to_a.sample, cv_id: cv.id)
 end
