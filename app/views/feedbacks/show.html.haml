@@ -1,22 +1,61 @@
-.feedback
-  .feedback-info
-    %table
-      %tr
-        %td Staff member:
-        %td Michael Scofield
-      %tr
-        %td Created for:
-        %td Job spec title
-      %tr
-        %td Created date:
-        %td= @feedback.created_at
-      %tr
-        %td Feedback status:
-        - if @feedback.status
-          %td{:class => "feedback-status #{@feedback.status}"}= @feedback.status
-        - else
-          %td{:class => "feedback-status"} request for feedback
-    .buttons
-      %button Edit CV
-      %button Send new CV
-.feedback-cv-preview CV PREVIEW
+= render 'bg'
+
+.cv-template
+  .cv-part
+    .personal-details
+      %p= @feedback.cv.name
+      %p= @feedback.cv.address
+      %p= "#{@feedback.cv.email}, #{@feedback.cv.phone_number}"
+    - unless @feedback.personal_details.blank?
+      %p.feedback-comment= @feedback.personal_details
+
+  .cv-part
+    .header Personal Profile
+    %p= @feedback.cv.personal_profile
+    - unless @feedback.personal_profile.blank?
+      %p.feedback-comment= @feedback.personal_profile
+
+  .cv-part
+    .header Education
+    %p= @feedback.cv.education
+    - unless @feedback.education.blank?
+      %p.feedback-comment= @feedback.education
+
+  .cv-part
+    .header Technical Skills
+    %p= @feedback.cv.technical_skills
+    - unless @feedback.technical_skills.blank?
+      %p.feedback-comment= @feedback.technical_skills
+
+  .cv-part
+    .header Project Work
+    %p= @feedback.cv.project_work
+    - unless @feedback.project_work.blank?
+      %p.feedback-comment= @feedback.project_work
+
+  .cv-part
+    .header Professional Experience
+    %p= @feedback.cv.professional_experience
+    - unless @feedback.professional_experience.blank?
+      %p.feedback-comment= @feedback.professional_experience
+
+  .cv-part
+    .header Interests and Achievements
+    %p= @feedback.cv.interests_and_achievements
+    - unless @feedback.interests_and_achievements.blank?
+      %p.feedback-comment= @feedback.interests_and_achievements
+
+  .cv-part
+    .header References
+    %p= @feedback.cv.references
+    - unless @feedback.references.blank?
+      %p.feedback-comment= @feedback.references
+
+  - unless @feedback.other_comments.blank?
+    %hr/
+    .cv-part
+      %p.feedback-comment= @feedback.other_comments
+  .under-form-links
+    = link_to 'CORRECT CV', edit_cv_path(@feedback.cv), class: "edit-btn"
+  .under-form-links
+    = link_to '↫ BACK', cvs_path, class: "link"

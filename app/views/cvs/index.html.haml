@@ -15,15 +15,18 @@
           %td Created date:
           %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
         %tr
-          %td Feedback status:
-          - if cv.feedback.present? && cv.feedback.status.present?
-            %td.feedback-status{class: "#{cv.feedback.status}"}
-              = link_to cv.feedback.status, [cv, cv.feedback]
-          - else
-            %td.feedback-status 
+          %td Status:
+          - if cv.pending?
+            %td.status.status-pending
               pending
+          - elsif cv.feedback.present?
+            %td.status{class: "status-#{cv.feedback.status}"}
+              = cv.feedback.status
       .links
-        = link_to "Show CV", cv_path(cv), class: "link"
+        - if cv.pending?
+          = link_to "Show CV", cv_path(cv), class: "link"
+        - else
+          = link_to "Show Feedback", [cv, cv.feedback], class: "link"
         |
         = link_to "Edit CV", edit_cv_path(cv), class: "link"
         |

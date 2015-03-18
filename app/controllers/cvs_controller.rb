@@ -28,7 +28,7 @@ class CvsController < ApplicationController
     if params[:job_id].present?
       @job = Job.find(params[:job_id])
       
-      @cv  = @job.cvs.new(cv_params)
+      @cv = @job.cvs.new(cv_params)
       @cv.user_id = current_user.id
 
       if @cv.save
@@ -37,7 +37,7 @@ class CvsController < ApplicationController
         render action: 'new'
       end      
     else
-      @cv  = @job.cvs.new(cv_params)
+      @cv = @job.cvs.new(cv_params)
       @cv.user_id = current_user.id
       
       if @cv.save
@@ -49,7 +49,9 @@ class CvsController < ApplicationController
   end
 
   def update
-    if @cv.update cv_params
+    @cv.request_feedback unless @cv.pending?
+
+    if @cv.update(cv_params)
       redirect_to @cv, notice: 'CV was successfully updated!'
     else
       render action: 'edit'
