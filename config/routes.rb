@@ -23,7 +23,9 @@ Rails.application.routes.draw do
       resources :cvs
     end
     resources :cvs do
-      resources :feedbacks, only: [:show]
+      resources :feedbacks, only: [:show] do
+        post :accept, :reject
+      end
     end
     root 'jobs#index', as: :authenticated_user_root
   end

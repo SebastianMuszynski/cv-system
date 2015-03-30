@@ -1,32 +1,64 @@
-.formatted-form
-  %h1 Create feedback
-  %h2.sub-title Fill the fields below.
-  = form_for [:admin, @cv, @feedback] do |f|
-    %div
-      = f.label :personal_details, 'Personal details'
-      = f.text_field :personal_details
-    %div
-      = f.label :personal_profile, 'Personal profile'
-      = f.text_field :personal_profile
-    %div
-      = f.label :education, 'Education'
-      = f.email_field :education
-    %div
-      = f.label :technical_skills, 'Technical Skills'
-      = f.phone_field :technical_skills
-    %div
-      = f.label :project_work, 'Project work'
-      = f.text_field :project_work
-    %div
-      = f.label :professional_experience, 'Professional experience'
-      = f.text_field :professional_experience
-    %div
-      = f.label :interests_and_achievements, 'Interests and achievements'
-      = f.text_field :interests_and_achievements
-    %div
-      = f.label :references, 'References'
-      = f.text_field :references
-    %div
-      = f.label :other_comments, 'Other comments'
-      = f.text_field :other_comments
-    = f.submit
+.formatted-form.feedback-form
+  .cv-template
+    = form_for [:admin, @cv, @feedback] do |f|
+      .cv-part
+        .personal-details
+          %p= @cv.name
+          %p= @cv.address
+          %p= "#{@cv.email}, #{@cv.phone_number}"
+        .feedback-field
+          = f.text_area :personal_details, placeholder: 'Personal details comments'
+
+      .cv-part
+        .header Personal Profile
+        %p= @cv.personal_profile
+        .feedback-field
+          = f.text_area :personal_profile, placeholder: 'Personal profile comments'
+
+      .cv-part
+        .header Education
+        %p= @cv.education
+        .feedback-field
+          = f.text_area :education, placeholder: 'Education comments'
+
+      .cv-part
+        .header Technical Skills
+        %p= @cv.technical_skills
+        .feedback-field
+          = f.text_area :technical_skills, placeholder: 'Technical Skills comments'
+
+      .cv-part
+        .header Project Work
+        %p= @cv.project_work
+        .feedback-field
+          = f.text_area :project_work, placeholder: 'Project work comments'
+
+      .cv-part
+        .header Professional Experience
+        %p= @cv.professional_experience
+        .feedback-field
+          = f.text_area :professional_experience, placeholder: 'Professional experience comments'
+
+      .cv-part
+        .header Interests and Achievements
+        %p= @cv.interests_and_achievements
+        .feedback-field
+          = f.text_area :interests_and_achievements, placeholder: 'Interests and achievements comments'
+
+      .cv-part
+        .header References
+        %p= @cv.references
+        .feedback-field
+          = f.text_area :references, placeholder: 'References comments'
+
+      %hr/
+
+      .cv-part
+        .feedback-field
+          = f.text_area :other_comments, placeholder: 'Other comments comments'
+      
+      .under-form-links
+        = f.submit "REJECT", class: "reject-btn"
+        = f.submit "ACCEPT", class: "accept-btn"
+      .under-form-links
+        = link_to '↫ BACK', admin_cvs_path, class: "link"

@@ -32,8 +32,8 @@
                 Logged in as:   
                 .bold= " #{ current_staff_member.first_name} #{current_staff_member.last_name}"
             %li= link_to "Jobs", admin_jobs_path
-            %li= link_to "Student CVs", admin_cvs_path
-            %li= link_to "Feedbacks", admin_feedbacks_path
+            %li.bold= link_to "Give feedback", admin_cvs_path
+            %li= link_to "Given feedbacks", admin_feedbacks_path
             %li= link_to "My account", edit_staff_member_registration_path
             %li= link_to "Log out", destroy_staff_member_session_path, method: :delete
           - else

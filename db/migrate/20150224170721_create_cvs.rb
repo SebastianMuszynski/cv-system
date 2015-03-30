@@ -1,6 +1,7 @@
 class CreateCvs < ActiveRecord::Migration
   def change
     create_table :cvs do |t|
+      t.string :status
       t.string :name
       t.string :address
       t.string :email

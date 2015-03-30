@@ -1,18 +1,24 @@
 = render 'bg'
 
-- @cvs.each do |cv|
-  .preview-box
-    .header= "CV ##{cv.id}"
-    %table
-      - if cv.job.present?
+- if @cvs.size.zero?
+  .special-message 
+    %p You have given feedback to all current CVs!
+    %p= image_tag "coffee.png"
+
+- else
+  - @cvs.each do |cv|
+    .preview-box
+      .header= "CV ##{cv.id}"
+      %table
+        - if cv.job.present?
+          %tr
+            %td Created for:
+            %td= link_to cv.job.title, admin_job_path(cv.job)
         %tr
-          %td Created for:
-          %td= link_to cv.job.title, job_path(cv.job)
-      %tr
-        %td Created date:
-        %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
-      %tr
-        %td Student name:
-        %td= "#{cv.user.first_name} #{cv.user.last_name}"
-    .links
-      = link_to "Give feedback", new_admin_cv_feedback_path(cv), class: "link"
+          %td Created date:
+          %td= cv.created_at.strftime("%H:%m %d.%m.%Y")
+        %tr
+          %td Student name:
+          %td= "#{cv.user.first_name} #{cv.user.last_name}"
+      .links
+        = link_to "Give feedback", new_admin_cv_feedback_path(cv), class: "link"

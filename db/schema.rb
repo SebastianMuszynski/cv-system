@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20150224172348) do
 
   create_table "cvs", force: true do |t|
+    t.string   "status"
     t.string   "name"
     t.string   "address"
     t.string   "email"

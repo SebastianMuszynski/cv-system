@@ -1,5 +1,5 @@
 .formatted-form
-  %h1 Add new job
+  %h1 Job form
   %h2.sub-title Fill the fields below.
   = form_for [:admin, @job] do |f|
     = f.text_field :title, placeholder: 'Job title'
@@ -10,3 +10,5 @@
     = f.label :logo, "Logo"
     = f.file_field :logo
     = f.submit
+  .under-form-links
+    = link_to '↫ BACK', admin_jobs_path, class: "link"

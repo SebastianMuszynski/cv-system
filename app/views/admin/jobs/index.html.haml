@@ -19,7 +19,7 @@
         = job.category
       .job-description
         = job.description
-    .center
+    .center.job-links
       = link_to 'Edit', edit_admin_job_path(job), class: "link"
       |
       = link_to 'Remove', [:admin, job], method: :delete, data: { confirm: 'Are you sure?' }, class: "link"
