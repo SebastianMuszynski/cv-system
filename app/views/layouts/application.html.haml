@@ -18,11 +18,19 @@
       %nav
         %ul
           - if user_signed_in?
+            %li.greeting 
+              %p
+                Logged in as:
+                .bold= " #{current_user.first_name} #{current_user.last_name}"
             %li= link_to "Jobs", jobs_path
             %li= link_to "My CVs", cvs_path
             %li= link_to "My account", edit_user_registration_path
             %li= link_to "Log out", destroy_user_session_path, method: :delete
           - elsif staff_member_signed_in?
+            %li.greeting 
+              %p
+                Logged in as:   
+                .bold= " #{ current_staff_member.first_name} #{current_staff_member.last_name}"
             %li= link_to "Jobs", admin_jobs_path
             %li= link_to "Student CVs", admin_cvs_path
             %li= link_to "Feedbacks", admin_feedbacks_path
