@@ -2,6 +2,25 @@
 
 .centered-btn= link_to 'New Job', new_admin_job_path, class: "link"
 
+.filter-box
+  .search
+    %p Search:
+    %input{:type => "text"}/
+  .category
+    %p Filter by category:
+    .link-btn= link_to "All categories", params.slice(:deadline, :date).merge(category: "All categories")
+    .link-btn= link_to "Science",        params.slice(:deadline, :date).merge(category: "Science")
+    .link-btn= link_to "Computing",      params.slice(:deadline, :date).merge(category: "Computing")
+    .link-btn= link_to "Engineering",    params.slice(:deadline, :date).merge(category: "Engineering")
+  .date-added
+    %p Filter by added date:
+    .link-btn= link_to "Newest",         params.slice(:category).merge(date: "Newest")
+    .link-btn= link_to "Oldest",         params.slice(:category).merge(date: "Oldest")
+  .deadline
+    %p Filter by deadline:
+    .link-btn= link_to "Upcoming",       params.slice(:category).merge(deadline: "Upcoming")
+    .link-btn= link_to "Furthest",       params.slice(:category).merge(deadline: "Furthest")
+
 - @jobs.each do |job|
   .job-details
     .job-title= job.title
