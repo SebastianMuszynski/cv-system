@@ -25,6 +25,7 @@
             %li= link_to "Jobs", jobs_path
             %li= link_to "My CVs", cvs_path
             %li= link_to "My account", edit_user_registration_path
+            %li= link_to "Contact us", contact_path
             %li= link_to "Log out", destroy_user_session_path, method: :delete
           - elsif staff_member_signed_in?
             %li.greeting 

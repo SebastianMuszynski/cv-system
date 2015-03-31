@@ -27,6 +27,7 @@ Rails.application.routes.draw do
         post :accept, :reject
       end
     end
+    get '/contact', to: 'pages#contact'
     root 'jobs#index', as: :authenticated_user_root
   end
 
