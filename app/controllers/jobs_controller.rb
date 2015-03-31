@@ -1,29 +1,37 @@
 class JobsController < ApplicationController
   def index
-    if params[:category].present? && params[:category] != "All categories"
-      @jobs = Job.where(category: params[:category])
-    else
-      @jobs = Job.all
-    end
-
-    if params[:date].present? && params[:date] == "Oldest"
-      created_date_order = :asc
-    else
-      created_date_order = :desc
-    end
-
-    @jobs.order!(created_at: created_date_order)
-
-    if params[:deadline].present? 
-      if params[:deadline] == "Upcoming"
-        @jobs.reorder!(deadline: :asc)
-      elsif params[:deadline] == "Furthest"
-        @jobs.reorder!(deadline: :desc)
-      end
-    end
+    @jobs = Job.search params[:search]
+    
+    @jobs = filter_by_category      @jobs
+    @jobs = filter_by_created_date  @jobs
+    @jobs = filter_by_deadline      @jobs
   end
 
   def show
-    @job = Job.find(params[:id])
+    @job = Job.find params[:id]
+  end
+
+  private
+
+  def filter_by_category jobs
+    return jobs if params[:category].nil? || params[:category] == "All categories"
+    jobs.where category: params[:category]
+  end
+
+  def filter_by_created_date jobs
+    return jobs unless params[:date].present? 
+    created_date_order = params[:date] == "Oldest" ? :asc : :desc
+    jobs.reorder created_at: created_date_order
+  end
+
+  def filter_by_deadline jobs
+    return jobs unless params[:deadline].present? 
+    if params[:deadline] == "Upcoming"
+      jobs.reorder deadline: :asc
+    elsif params[:deadline] == "Furthest"
+      jobs.reorder deadline: :desc
+    else
+      jobs
+    end
   end
 end
