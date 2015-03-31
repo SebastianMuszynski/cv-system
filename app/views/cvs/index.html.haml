@@ -26,7 +26,7 @@
         - if cv.pending?
           = link_to "Show CV", cv_path(cv), class: "link"
         - else
-          = link_to "Show Feedback", [cv, cv.feedback], class: "link"
+          = link_to "Show CV and Feedback", [cv, cv.feedback], class: "link"
         |
         = link_to "Edit CV", edit_cv_path(cv), class: "link"
         |
