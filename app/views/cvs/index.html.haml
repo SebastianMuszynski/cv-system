@@ -31,3 +31,6 @@
         = link_to "Edit CV", edit_cv_path(cv), class: "link"
         |
         = link_to "Remove CV", cv_path(cv), data: { confirm: "Are you sure?" }, method: :delete, class: "link"
+        - if cv.accepted?
+          |
+          = link_to "Apply for job", "#", class: "link bold"
