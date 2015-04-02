@@ -9,6 +9,17 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :first_name
       t.string :last_name
 
+      # Default CV fields
+      t.string :address
+      t.string :phone_number
+      t.string :personal_profile
+      t.string :education
+      t.string :technical_skills
+      t.string :project_work
+      t.string :professional_experience
+      t.string :interests_and_achievements
+      t.string :references
+
       ## Recoverable
       t.string   :reset_password_token
       t.datetime :reset_password_sent_at

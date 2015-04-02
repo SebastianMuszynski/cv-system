@@ -6,37 +6,37 @@
   = form_for [@job, @cv] do |f|
     .field
       = f.label :name, 'Your full name'
-      = f.text_field :name, placeholder: 'Your full name'
+      = f.text_field :name, placeholder: 'Your full name', value: current_user.full_name
     .field
       = f.label :address, 'Address'
-      = f.text_field :address, placeholder: 'Address'
+      = f.text_field :address, placeholder: 'Address', value: current_user.address
     .field
       = f.label :email, 'Email'
-      = f.email_field :email, placeholder: 'Email'
+      = f.email_field :email, placeholder: 'Email', value: current_user.email
     .field
       = f.label :phone_number, 'Phone number'
-      = f.phone_field :phone_number, placeholder: 'Phone number'
+      = f.phone_field :phone_number, placeholder: 'Phone number', value: current_user.phone_number
     .field
       = f.label :personal_profile, 'Personal profile'
-      = f.text_area :personal_profile, placeholder: 'Personal profile'
+      = f.text_area :personal_profile, placeholder: 'Personal profile', value: current_user.personal_profile
     .field
       = f.label :education, 'Education'
-      = f.text_area :education, placeholder: 'Education'
+      = f.text_area :education, placeholder: 'Education', value: current_user.education
     .field
       = f.label :technical_skills, 'Technical skills'
-      = f.text_area :technical_skills, placeholder: 'Technical skills'
+      = f.text_area :technical_skills, placeholder: 'Technical skills', value: current_user.technical_skills
     .field
       = f.label :project_work, 'Project work'
-      = f.text_area :project_work, placeholder: 'Project work'
+      = f.text_area :project_work, placeholder: 'Project work', value: current_user.project_work
     .field
       = f.label :professional_experience, 'Professional experience'
-      = f.text_area :professional_experience, placeholder: 'Professional experience'
+      = f.text_area :professional_experience, placeholder: 'Professional experience', value: current_user.professional_experience
     .field
       = f.label :interests_and_achievements, 'Interests and achievements'
-      = f.text_area :interests_and_achievements, placeholder: 'Interests and achievements'
+      = f.text_area :interests_and_achievements, placeholder: 'Interests and achievements', value: current_user.interests_and_achievements
     .field
       = f.label :references, 'References'
-      = f.text_area :references, placeholder: 'References'
+      = f.text_area :references, placeholder: 'References', value: current_user.references
     = f.submit
   .under-form-links
     = link_to '↫ BACK', cvs_path, class: "link"

@@ -87,15 +87,24 @@ ActiveRecord::Schema.define(version: 20150224172348) do
   add_index "staff_members", ["reset_password_token"], name: "index_staff_members_on_reset_password_token", unique: true
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                      default: "", null: false
+    t.string   "encrypted_password",         default: "", null: false
     t.string   "photo"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "address"
+    t.string   "phone_number"
+    t.string   "personal_profile"
+    t.string   "education"
+    t.string   "technical_skills"
+    t.string   "project_work"
+    t.string   "professional_experience"
+    t.string   "interests_and_achievements"
+    t.string   "references"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",              default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
