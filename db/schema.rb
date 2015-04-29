@@ -28,10 +28,12 @@ ActiveRecord::Schema.define(version: 20150224172348) do
     t.string   "references"
     t.integer  "user_id"
     t.integer  "job_id"
+    t.integer  "feedback_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "cvs", ["feedback_id"], name: "index_cvs_on_feedback_id"
   add_index "cvs", ["job_id"], name: "index_cvs_on_job_id"
   add_index "cvs", ["user_id"], name: "index_cvs_on_user_id"
 

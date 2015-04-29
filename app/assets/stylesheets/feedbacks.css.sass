@@ -41,7 +41,8 @@
     min-height: 100px
     display: block
 
-.feedback-comment
+.feedback-comment,
+.previous-feedback-comment
   padding: 10px
   padding-top: 30px
   margin: 15px 0
@@ -59,3 +60,10 @@
     font-size: 13px
     font-weight: bold
     letter-spacing: 1px
+
+.previous-feedback-comment
+  background-color: #FFEEA1
+  border-top: 1px solid #F0C0C0
+  border-bottom: 1px solid #F0C0C0
+  &:before
+    content: "PREVIOUS FEEDBACK"

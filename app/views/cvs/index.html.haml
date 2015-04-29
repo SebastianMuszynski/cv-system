@@ -19,14 +19,14 @@
           - if cv.pending?
             %td.status.status-pending
               pending
-          - elsif cv.feedback.present?
-            %td.status{class: "status-#{cv.feedback.status}"}
-              = cv.feedback.status
+          - elsif cv.feedbacks.last.present?
+            %td.status{class: "status-#{cv.feedbacks.last.status}"}
+              = cv.feedbacks.last.status
       .links
         - if cv.pending?
           = link_to "Show CV", cv_path(cv), class: "link"
         - else
-          = link_to "Show CV and Feedback", [cv, cv.feedback], class: "link"
+          = link_to "Show CV and Feedback", [cv, cv.feedbacks.last], class: "link"
         |
         = link_to "Edit CV", edit_cv_path(cv), class: "link"
         |

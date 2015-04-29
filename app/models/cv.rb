@@ -1,7 +1,7 @@
 class Cv < ActiveRecord::Base
   belongs_to :user
   belongs_to :job
-  has_one :feedback
+  has_many :feedbacks
 
   state_machine :status, initial: :pending do
     event :accept do 

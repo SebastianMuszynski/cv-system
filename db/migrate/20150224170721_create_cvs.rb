@@ -15,6 +15,7 @@ class CreateCvs < ActiveRecord::Migration
       t.string :references
       t.references :user, index: true
       t.references :job, index: true
+      t.references :feedback, index: true
 
       t.timestamps
     end

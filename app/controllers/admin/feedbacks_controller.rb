@@ -23,12 +23,14 @@ class Admin::FeedbacksController < ApplicationController
 
     cv = Cv.find params[:cv_id]
     case params[:commit]
-    when 'ACCEPT'
-      @feedback.status = 'accepted'
+    when "Ready to send"
+      @feedback.accept
       cv.accept 
-    when 'REJECT'
-      @feedback.status = 'rejected'
+    when "Needs improvement"
+      @feedback.reject
       cv.reject
+    else
+      logger.error "An error occured with changing feedback status!"
     end
 
     if @feedback.save
