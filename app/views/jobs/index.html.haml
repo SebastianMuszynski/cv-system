@@ -7,18 +7,46 @@
       = submit_tag "Search", name: nil
   .category
     %p Filter by category:
-    .link-btn= link_to "All categories", params.slice(:search, :deadline, :date).merge(category: "All categories")
-    .link-btn= link_to "Science",        params.slice(:search, :deadline, :date).merge(category: "Science")
-    .link-btn= link_to "Computing",      params.slice(:search, :deadline, :date).merge(category: "Computing")
-    .link-btn= link_to "Engineering",    params.slice(:search, :deadline, :date).merge(category: "Engineering")
+    - if @current_category.blank?
+      .link-btn.currently-selected= link_to "All categories", params.slice(:search, :deadline, :date).merge(category: "All categories")
+    - else
+      .link-btn= link_to "All categories", params.slice(:search, :deadline, :date).merge(category: "All categories")
+      
+    - if @current_category == 'Science'
+      .link-btn.currently-selected= link_to "Science",        params.slice(:search, :deadline, :date).merge(category: "Science")
+    - else
+      .link-btn= link_to "Science",        params.slice(:search, :deadline, :date).merge(category: "Science")
+      
+    - if @current_category == 'Computing'
+      .link-btn.currently-selected= link_to "Computing",      params.slice(:search, :deadline, :date).merge(category: "Computing")
+    - else
+      .link-btn= link_to "Computing",      params.slice(:search, :deadline, :date).merge(category: "Computing")
+      
+    - if @current_category == 'Engineering'
+      .link-btn.currently-selected= link_to "Engineering",    params.slice(:search, :deadline, :date).merge(category: "Engineering")
+    - else
+      .link-btn= link_to "Engineering",    params.slice(:search, :deadline, :date).merge(category: "Engineering")
+      
   .date-added
     %p Filter by added date:
-    .link-btn= link_to "Newest",         params.slice(:search, :category).merge(date: "Newest")
-    .link-btn= link_to "Oldest",         params.slice(:search, :category).merge(date: "Oldest")
+    - if @current_date == 'Newest'
+      .link-btn.currently-selected= link_to "Newest",         params.slice(:search, :category).merge(date: "Newest")
+    - else
+      .link-btn= link_to "Newest",         params.slice(:search, :category).merge(date: "Newest")
+    - if @current_date == 'Oldest'
+      .link-btn.currently-selected= link_to "Oldest",         params.slice(:search, :category).merge(date: "Oldest")
+    - else
+      .link-btn= link_to "Oldest",         params.slice(:search, :category).merge(date: "Oldest")
   .deadline
     %p Filter by deadline:
-    .link-btn= link_to "Upcoming",       params.slice(:search, :category).merge(deadline: "Upcoming")
-    .link-btn= link_to "Furthest",       params.slice(:search, :category).merge(deadline: "Furthest")
+    - if @current_deadline == 'Upcoming'
+      .link-btn.currently-selected= link_to "Upcoming",       params.slice(:search, :category).merge(deadline: "Upcoming")
+    - else
+      .link-btn= link_to "Upcoming",       params.slice(:search, :category).merge(deadline: "Upcoming")
+    - if @current_deadline == 'Furthest'
+      .link-btn.currently-selected= link_to "Furthest",       params.slice(:search, :category).merge(deadline: "Furthest")
+    - else
+      .link-btn= link_to "Furthest",       params.slice(:search, :category).merge(deadline: "Furthest")
   .clear-filters
     .link-btn= link_to "CLEAR FITLERS",  jobs_path
 - @jobs.each do |job|
