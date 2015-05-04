@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150224172348) do
+ActiveRecord::Schema.define(version: 20150501121228) do
+
+  create_table "custom_field_feedbacks", force: true do |t|
+    t.text     "comment"
+    t.integer  "custom_field_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "custom_field_feedbacks", ["custom_field_id"], name: "index_custom_field_feedbacks_on_custom_field_id"
+
+  create_table "custom_fields", force: true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.integer  "cv_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "custom_fields", ["cv_id"], name: "index_custom_fields_on_cv_id"
 
   create_table "cvs", force: true do |t|
     t.string   "status"

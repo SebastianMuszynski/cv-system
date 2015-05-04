@@ -17,6 +17,7 @@ class CvsController < ApplicationController
 
   def new
     @cv = Cv.new
+    @cv.custom_fields.build
     @job = Job.find(params[:job_id]) if params[:job_id].present?
   end
 
@@ -27,7 +28,7 @@ class CvsController < ApplicationController
   def create
     if params[:job_id].present?
       @job = Job.find(params[:job_id])
-      
+
       @cv = @job.cvs.new(cv_params)
       @cv.user_id = current_user.id
 
@@ -35,11 +36,11 @@ class CvsController < ApplicationController
         redirect_to [@job, @cv], notice: 'CV was successfully created!'
       else
         render action: 'new'
-      end      
+      end
     else
       @cv = @job.cvs.new(cv_params)
       @cv.user_id = current_user.id
-      
+
       if @cv.save
         redirect_to @cv, notice: 'CV was successfully created!'
       else
@@ -61,7 +62,7 @@ class CvsController < ApplicationController
   def destroy
     notice = if @cv.destroy
       'CV was successfully deleted.'
-    else 
+    else
       'An error occured while deleting the CV!'
     end
     redirect_to cvs_url, notice: notice
@@ -74,7 +75,7 @@ class CvsController < ApplicationController
   end
 
   def cv_params
-    params.require(:cv).permit(:id, :name, :address, :email, :phone_number, :personal_profile, :education, :technical_skills, :project_work, 
-      :professional_experience, :interests_and_achievements, :references, :job_id, :user_id, :created_at)
+    params.require(:cv).permit(:id, :name, :address, :email, :phone_number, :personal_profile, :education, :technical_skills, :project_work,
+      :professional_experience, :interests_and_achievements, :references, :job_id, :user_id, :created_at, custom_fields_attributes: [:id, :name, :content, :_destroy])
   end
 end

@@ -3,7 +3,7 @@ class Admin::JobsController < ApplicationController
 
    def index
     @jobs = Job.search params[:search]
-    
+
     @jobs = filter_by_category      @jobs
     @jobs = filter_by_created_date  @jobs
     @jobs = filter_by_deadline      @jobs
@@ -44,7 +44,7 @@ class Admin::JobsController < ApplicationController
   def destroy
     notice = if @job.destroy
       'Job was successfully deleted.'
-    else 
+    else
       'An error occured while deleting the job!'
     end
     redirect_to admin_jobs_url, notice: notice
@@ -66,13 +66,13 @@ class Admin::JobsController < ApplicationController
   end
 
   def filter_by_created_date jobs
-    return jobs unless params[:date].present? 
+    return jobs unless params[:date].present?
     created_date_order = params[:date] == "Oldest" ? :asc : :desc
     jobs.reorder created_at: created_date_order
   end
 
   def filter_by_deadline jobs
-    return jobs unless params[:deadline].present? 
+    return jobs unless params[:deadline].present?
     if params[:deadline] == "Upcoming"
       jobs.reorder deadline: :asc
     elsif params[:deadline] == "Furthest"

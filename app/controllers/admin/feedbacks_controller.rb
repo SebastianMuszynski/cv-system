@@ -17,15 +17,21 @@ class Admin::FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = Feedback.new feedback_params
+    @feedback = Feedback.new feedback_params.except(:custom_field_feedbacks)
     @feedback.staff_member_id = current_staff_member.id
     @feedback.cv_id = params[:cv_id]
+
+    feedback_params[:custom_field_feedbacks].each do |custom_feedback|
+      custom_field_id = custom_feedback[0]
+      custom_comment = custom_feedback[1][:comment]
+      CustomField.find(custom_field_id).custom_field_feedbacks.create(comment: custom_comment)
+    end
 
     cv = Cv.find params[:cv_id]
     case params[:commit]
     when "Ready to send"
       @feedback.accept
-      cv.accept 
+      cv.accept
     when "Needs improvement"
       @feedback.reject
       cv.reject
@@ -41,7 +47,7 @@ class Admin::FeedbacksController < ApplicationController
   end
 
   def update
-    if @feedback.update feedback_params
+    if @feedback.update feedback_params.except(:custom_field_feedbacks)
       redirect_to [:admin, @feedback], notice: 'Feedback was successfully updated!'
     else
       render action: 'edit'
@@ -51,7 +57,7 @@ class Admin::FeedbacksController < ApplicationController
   def destroy
     notice = if @feedback.destroy
       'Feedback was successfully deleted.'
-    else 
+    else
       'An error occured while deleting the feedback!'
     end
     redirect_to admin_feedbacks_url, notice: notice
@@ -64,7 +70,7 @@ class Admin::FeedbacksController < ApplicationController
   end
 
   def feedback_params
-    params.require(:feedback).permit(:id, :status, :personal_details, :personal_profile, :education, :technical_skills, :project_work, 
-      :professional_experience, :interests_and_achievements, :references, :other_comments, :cv_id, :staff_member_id, :created_at)
+    params.require(:feedback).permit(:id, :status, :personal_details, :personal_profile, :education, :technical_skills, :project_work,
+      :professional_experience, :interests_and_achievements, :references, :other_comments, :cv_id, :staff_member_id, :created_at, custom_field_feedbacks: [:id, :comment])
   end
 end
