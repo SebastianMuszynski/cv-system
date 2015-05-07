@@ -75,6 +75,15 @@
         .feedback-field
           = f.text_area :references, placeholder: 'References comments'
 
+      - @cv.custom_fields.each do |cf|
+        .cv-part
+          .header= cf.name
+          %p= cf.content
+          - if cf.custom_field_feedbacks.last && cf.custom_field_feedbacks.last.comment.present?
+            %p.previous-feedback-comment
+              = cf.custom_field_feedbacks.last.comment
+          .feedback-field
+            = text_area_tag :comment, "", placeholder: "Comments for #{cf.name}", name: "feedback[custom_field_feedbacks][#{cf.id}][comment]"
       %hr/
 
       .cv-part
@@ -83,7 +92,7 @@
             = @cv.feedbacks.last.other_comments
         .feedback-field
           = f.text_area :other_comments, placeholder: 'Other comments comments'
-      
+
       .under-form-links
         = f.submit "Needs improvement", class: "reject-btn"
         = f.submit "Ready to send", class: "accept-btn"

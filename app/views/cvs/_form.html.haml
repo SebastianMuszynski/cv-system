@@ -1,4 +1,4 @@
-%body   
+%body
   %p.guidelines= link_to 'Need help? View our guidelines!', 'https://studyspace.kingston.ac.uk/bbcswebdav/orgs/SEC/Placements/2014-15/guides/CV%20Guide%202014.pdf', target: '_blank'
 .formatted-form.cv-form
   %h1= "CV for #{@job.title}"
@@ -37,6 +37,21 @@
     .field
       = f.label :references, 'References'
       = f.text_area :references, placeholder: 'References', value: current_user.references
+
+
+    = f.nested_fields_for :custom_fields do |ff|
+      .custom-field
+        = ff.remove_nested_fields_link
+        .field
+          = ff.label :name, "Custom CV field name"
+          = ff.text_field :name, placeholder: 'Custom CV field name'
+        .field
+          = ff.label :content, "Custom field content"
+          = ff.text_area :content, placeholder: 'Custom field content'
+
+    .add-custom-field
+      = f.add_nested_fields_link :custom_fields, "Add custom field", class: "link add-custom-field"
+
     = f.submit
   .under-form-links
     = link_to '↫ BACK', cvs_path, class: "link"

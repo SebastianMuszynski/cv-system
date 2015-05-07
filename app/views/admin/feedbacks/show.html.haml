@@ -51,6 +51,13 @@
     - unless @feedback.references.blank?
       %p.feedback-comment= @feedback.references
 
+  - @feedback.cv.custom_fields.each do |cf|
+    .cv-part
+      .header= cf.name
+      %p= cf.content
+      - unless cf.custom_field_feedbacks.last.comment.blank?
+        %p.feedback-comment= cf.custom_field_feedbacks.last.comment
+
   - unless @feedback.other_comments.blank?
     %hr/
     .cv-part

@@ -33,7 +33,12 @@
   .cv-part
     .header References
     %p= @cv.references
-  
+
+  - @cv.custom_fields.each do |cf|
+    .cv-part
+      .header= cf.name
+      %p= cf.content
+
   .under-form-links
     = link_to 'Edit', edit_cv_path(@cv), class: "link"
     |

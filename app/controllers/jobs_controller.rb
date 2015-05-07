@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
   def index
     @jobs = Job.search params[:search]
-    
+
     @jobs = filter_by_category      @jobs
     @jobs = filter_by_created_date  @jobs
     @jobs = filter_by_deadline      @jobs
@@ -27,7 +27,7 @@ class JobsController < ApplicationController
   end
 
   def filter_by_deadline jobs
-    return jobs unless params[:deadline].present? 
+    return jobs unless params[:deadline].present?
     @current_deadline = params[:deadline]
     if params[:deadline] == "Upcoming"
       jobs.reorder deadline: :asc

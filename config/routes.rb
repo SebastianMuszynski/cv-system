@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   devise_for :staff_members
 
   unauthenticated do
     root to: 'pages#main'
   end
-  
+
   namespace :admin do
     authenticate :staff_member do
       resources :cvs do
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       root 'jobs#index', as: :authenticated_admin_root
     end
   end
-  
+
   authenticate :user do
     resources :jobs, only: [:index, :show] do
       resources :cvs
