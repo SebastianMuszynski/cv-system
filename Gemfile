@@ -16,4 +16,5 @@ gem 'nested_form_fields'
 
 group :development do
   gem "erb2haml"
+  gem "letter_opener"
 end
