@@ -1,21 +1,43 @@
+= render 'bg'
+.contact-columns
 
-%p we would love to hear from you
-%p You can contact us  at our office or social media
-%p Office Address
-%p Penryhn road
-%P Kingston Upon thames
-%p Surrey
-%p KT1 2EE
-%form
-  %p User name
-  %input{:name => "username", :type => "text"}
-  %p Email:
-  %input{:name => "email", :type => "text"}
-  %p RE
-  %input{:name => "subject", :type => "text"}
-  %p Messsage
-  %textarea{:cols => "50", :name => "message", :rows => "10"}
-  %p
-  %button submit
-  %p= link_to image_tag("facebook.png"), 'https://www.facebook.com/sec.place.9'
-  %p= link_to image_tag("twitter.png"), 'https://twitter.com/kingstonsec'
+  .contact-column
+  
+    .message.contact-box
+      %p.bold We would love to hear from you!
+      %p You can contact us at our office, or via social media. 
+
+    .contact-us.contact-box
+      %p.bold You can find us at:
+      %p Kingston University, Penrhyn Road Campus  
+      %p Penrhyn Road
+      %P Kingston-upon-Thames 
+      %p Surrey
+      %p KT1 2EE 
+
+    .contact-hours.contact-box
+      %p.bold Or call us at:
+      %p Daytime Telephone Number: 0120 689 7179
+      %p Out of Office Hours Telephone Number: 0722 637 1874
+      %p Office Hours: 09:00 - 17:00
+
+    .formContact.contact-box
+      %p.bold If you can't reach us just fill out this form:
+      .form
+        %form
+          %p Your Name:
+          %input{:name => "username", :type => "text"}
+          %p Your Email Address:
+          %input{:name => "email", :type => "text"}
+          %p Your Message:
+          %textarea{:cols => "50", :name => "message", :rows => "10"}
+          .button
+            %button Submit
+  
+  .contact-column
+    .gmap.center.contact-box
+      <iframe src="https://www.google.com/maps/embed?pb=!1m22!1m12!1m3!1d2488.9706251682837!2d-0.30327882817061674!3d51.40359443272113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m7!1i0!3e0!4m0!4m3!3m2!1d51.4038654!2d-0.303826!5e0!3m2!1sen!2suk!4v1430998102352" width="450" height="450" frameborder="0" style="border:0"></iframe>
+
+    .socialMedia.center.contact-box
+      = link_to image_tag("facebookFindUs.png"), 'https://www.facebook.com/sec.place.9'
+      = link_to image_tag("twitterFollowUs.png"), 'https://twitter.com/kingstonsec'
