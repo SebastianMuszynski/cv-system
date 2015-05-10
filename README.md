@@ -1,5 +1,5 @@
 README
-============
+======
 
 CV creator system for SEC Placement Team at Kingston University.
 
@@ -10,20 +10,29 @@ Authors:
 - Ace Shaulov
 - Adam Kerr
 
-### How to run the project
+How to run the project
+------
 
 1. Install all the gems.
 
-```bundle install```
+  ```
+  bundle install
+  ```
 
 2. Create the database, run all the migrations and load sample data.
 
-```rake db:create && rake db:migrate && rake db:seed```
+  ```
+  rake db:create && rake db:migrate && rake db:seed
+  ```
 
-3. Run the server:
+3. Run the server.
 
-```rails s```
+  ```
+  rails s
+  ```
 
-4. Visit the site:
+4. Visit the site and enjoy!
 
-```localhost:3000```
+  ```
+  localhost:3000
+  ```
