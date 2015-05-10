@@ -11,22 +11,22 @@
       .link-btn.currently-selected= link_to "All categories", params.slice(:search, :deadline, :date).merge(category: "All categories")
     - else
       .link-btn= link_to "All categories", params.slice(:search, :deadline, :date).merge(category: "All categories")
-      
+
     - if @current_category == 'Science'
       .link-btn.currently-selected= link_to "Science",        params.slice(:search, :deadline, :date).merge(category: "Science")
     - else
       .link-btn= link_to "Science",        params.slice(:search, :deadline, :date).merge(category: "Science")
-      
+
     - if @current_category == 'Computing'
       .link-btn.currently-selected= link_to "Computing",      params.slice(:search, :deadline, :date).merge(category: "Computing")
     - else
       .link-btn= link_to "Computing",      params.slice(:search, :deadline, :date).merge(category: "Computing")
-      
+
     - if @current_category == 'Engineering'
       .link-btn.currently-selected= link_to "Engineering",    params.slice(:search, :deadline, :date).merge(category: "Engineering")
     - else
       .link-btn= link_to "Engineering",    params.slice(:search, :deadline, :date).merge(category: "Engineering")
-      
+
   .date-added
     %p Filter by added date:
     - if @current_date == 'Newest'
