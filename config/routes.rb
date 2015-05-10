@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       end
       resources :feedbacks
       resources :jobs
+      get '/stats', to: 'pages#stats'
       root 'jobs#index', as: :authenticated_admin_root
     end
   end

@@ -1,0 +1,40 @@
+= render 'bg'
+
+.stats-box
+  %h1 Statistics
+  %table
+    %tr
+      %td
+        %span.bold Number of Students:
+      %td
+        %span.number= User.count
+    %tr
+      %td
+        %span.bold Number of Staff Members:
+      %td
+        %span.number= StaffMember.count
+    %tr
+      %td
+        %span.bold Number of CVs created:
+      %td
+        %span.number= Cv.count
+    %tr
+      %td
+        %span.bold Number of Jobs added:
+      %td
+        %span.number= Job.count
+    %tr
+      %td
+        %span.bold Number of Feedbacks given:
+      %td
+        %span.number= Feedback.count
+    %tr
+      %td
+        %span.bold Number of positive feedbacks:
+      %td
+        %span.number= Feedback.where(status: "accepted").count
+    %tr
+      %td
+        %span.bold Number of CVs awaiting for correction:
+      %td
+        %span.number= Cv.where(status: "rejected").count

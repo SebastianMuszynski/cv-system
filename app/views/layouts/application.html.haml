@@ -39,6 +39,7 @@
             %li.bold= link_to "Give feedback", admin_cvs_path
             %li= link_to "Given feedbacks", admin_feedbacks_path
             %li= link_to "My account", edit_staff_member_registration_path
+            %li= link_to "Statistics", admin_stats_path
             %li= link_to "Log out", destroy_staff_member_session_path, method: :delete
           - else
             %li= link_to "Sign up", new_user_registration_path
