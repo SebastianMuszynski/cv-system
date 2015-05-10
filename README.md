@@ -1,4 +1,5 @@
-== README
+README
+============
 
 CV creator system for SEC Placement Team at Kingston University.
 
@@ -9,7 +10,7 @@ Authors:
 - Ace Shaulov
 - Adam Kerr
 
-# How to run the project
+### How to run the project
 
 1. Install all the gems.
 
