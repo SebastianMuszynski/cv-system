@@ -21,7 +21,12 @@
               pending
           - elsif cv.feedbacks.last.present?
             %td.status{class: "status-#{cv.feedbacks.last.status}"}
-              = cv.feedbacks.last.status
+              - if cv.feedbacks.last.accepted?
+                ready to send
+              - elsif cv.feedbacks.last.rejected?
+                needs improvement
+              - else
+                pending
       .links
         - if cv.pending?
           = link_to "Show CV", cv_path(cv), class: "link"

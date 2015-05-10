@@ -11,6 +11,12 @@
         %td= "#{feedback.cv.user.first_name} #{feedback.cv.user.last_name}"
       %tr
         %td CV status:
-        %td{class: "status status-#{feedback.cv.status}"}= feedback.cv.status
+        %td{class: "status status-#{feedback.cv.status}"}
+          - if feedback.cv.accepted?
+            ready to send
+          - elsif feedback.cv.rejected?
+            needs improvement
+          - else
+            pending
     .center
       = link_to 'Preview', admin_feedback_path(feedback), class: "link"
