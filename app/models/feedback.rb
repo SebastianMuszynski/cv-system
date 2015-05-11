@@ -14,5 +14,9 @@ class Feedback < ActiveRecord::Base
     event :request_feedback do
       transition [:rejected, :accepted] => :pending
     end
+
+    event :ready do
+      transition :accepted => :ready
+    end
   end
 end

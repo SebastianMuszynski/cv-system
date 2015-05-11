@@ -21,7 +21,9 @@
               pending
           - elsif cv.feedbacks.last.present?
             %td.status{class: "status-#{cv.feedbacks.last.status}"}
-              - if cv.feedbacks.last.accepted?
+              - if cv.ready?
+                SENT!
+              - elsif cv.feedbacks.last.accepted?
                 ready to send
               - elsif cv.feedbacks.last.rejected?
                 needs improvement
@@ -38,4 +40,4 @@
         = link_to "Remove CV", cv_path(cv), data: { confirm: "Are you sure?" }, method: :delete, class: "link"
         - if cv.accepted?
           |
-          = link_to "Apply for job", "#", class: "link bold"
+          = link_to "Apply for job", cv_ready_path(cv), method: :post, class: "link bold"

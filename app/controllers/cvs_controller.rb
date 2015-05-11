@@ -68,6 +68,11 @@ class CvsController < ApplicationController
     redirect_to cvs_url, notice: notice
   end
 
+  def ready
+    Cv.find(params[:cv_id]).ready
+    redirect_to cvs_path
+  end
+
   private
 
   def set_cv
