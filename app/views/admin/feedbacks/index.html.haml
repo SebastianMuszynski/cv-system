@@ -12,7 +12,9 @@
       %tr
         %td CV status:
         %td{class: "status status-#{feedback.cv.status}"}
-          - if feedback.cv.accepted?
+          - if feedback.cv.ready?
+            ready to apply
+          - elsif feedback.cv.accepted?
             ready to send
           - elsif feedback.cv.rejected?
             needs improvement

@@ -20,7 +20,7 @@
             %td.status.status-pending
               pending
           - elsif cv.feedbacks.last.present?
-            %td.status{class: "status-#{cv.feedbacks.last.status}"}
+            %td.status{class: "status-#{cv.status}"}
               - if cv.ready?
                 SENT!
               - elsif cv.feedbacks.last.accepted?
