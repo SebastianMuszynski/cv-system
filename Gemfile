@@ -13,6 +13,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'state_machine', '~> 1.2.0'
 gem 'nested_form_fields'
+gem 'figaro'
 
 group :development do
   gem "erb2haml"

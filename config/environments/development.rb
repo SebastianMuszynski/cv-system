@@ -44,7 +44,7 @@ Rails.application.configure do
     port:                 465,
     domain:               'gmail.com',
     user_name:            'cvsystem.contact@gmail.com',
-    password:             'RedLeader1234',
+    password:             ENV["email_password"],
     authentication:       :login,
     tls:                  true,
     enable_starttls_auto: true
